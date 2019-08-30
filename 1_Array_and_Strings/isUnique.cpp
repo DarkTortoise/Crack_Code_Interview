@@ -1,6 +1,6 @@
 #include <cstring>
 
-bool is_unique(const char *str) {
+bool isUnique(const char *str) {
     bool table[52] {false};
 
     for (size_t index = 0; index < strlen(str); index++) {
