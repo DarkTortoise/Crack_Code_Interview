@@ -7,7 +7,7 @@ extern bool isUnique(const char *str);
 extern bool checkPermutation(const char *str1, const char *str2);
 extern string URLify(const char *str, size_t size);
 extern bool parPermutation(const char *str);
-extern bool parPermutationS2(const char *str);
+extern bool oneAway(const char *str1, const char *str2);
 
 TEST_CASE("Is Unique") {
     REQUIRE(!isUnique("hello"));
@@ -27,4 +27,14 @@ TEST_CASE("URLIFY") {
 TEST_CASE("Parlindrome Permutation") {
     REQUIRE(!parPermutation("tact coa"));
     REQUIRE(parPermutation("abccba"));
+}
+
+TEST_CASE("One Away") {
+    REQUIRE(oneAway("abc", "afc"));
+    REQUIRE(oneAway("abcd", "abc"));
+    REQUIRE(oneAway("abc", "abcd"));
+
+    REQUIRE(!oneAway("abc", "acb"));
+    REQUIRE(!oneAway("abc", "abcde"));
+    REQUIRE(!oneAway("abcde", "abc"));
 }
