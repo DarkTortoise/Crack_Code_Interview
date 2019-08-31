@@ -18,5 +18,6 @@ TEST_CASE("Check Permutation") {
 }
 
 TEST_CASE("URLIFY") {
-    REQUIRE(URLify("Hello World", 13) == "Hello%20World");
+    REQUIRE(URLify("Hello World", 11) == "Hello%20World");
+    REQUIRE(URLify("Hello World ", 12) == "Hello%20World%20");
 }

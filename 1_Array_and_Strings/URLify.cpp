@@ -7,7 +7,7 @@ string URLify(const char *str, size_t size) {
 
     for (size_t index = 0; index < size; index++) {
         if (isspace(str[index]))
-            n_spaces++;
+            n_spaces += 3;
         else
             n_chars++;
     }
