@@ -8,6 +8,8 @@ extern bool checkPermutation(const char *str1, const char *str2);
 extern string URLify(const char *str, size_t size);
 extern bool parPermutation(const char *str);
 extern bool oneAway(const char *str1, const char *str2);
+extern string stringCompression(const char *str);
+extern string stringCompressionV2(const string &str);
 
 TEST_CASE("Is Unique") {
     REQUIRE(!isUnique("hello"));
@@ -37,4 +39,14 @@ TEST_CASE("One Away") {
     REQUIRE(!oneAway("abc", "acb"));
     REQUIRE(!oneAway("abc", "abcde"));
     REQUIRE(!oneAway("abcde", "abc"));
+}
+
+TEST_CASE("String Compression") {
+    REQUIRE(stringCompression("aaabbbccc") == "a3b3c3");
+    REQUIRE(stringCompression("abbbcc") == "a1b3c2");
+    REQUIRE(stringCompression("abc") == "abc");
+
+    REQUIRE(stringCompressionV2("aaabbbccc") == "a3b3c3");
+    REQUIRE(stringCompressionV2("abbbcc") == "a1b3c2");
+    REQUIRE(stringCompressionV2("abc") == "abc");
 }
