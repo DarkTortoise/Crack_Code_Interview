@@ -1,7 +1,7 @@
 #include <cstddef>
 #include <cstring>
 
-bool parPermutation(const char *str) {
+bool ParPermutation(const char *str) {
     size_t length = strlen(str);
     int table[52]{0};
 

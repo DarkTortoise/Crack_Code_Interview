@@ -1,7 +1,7 @@
 #include <cstddef>
 #include <cstring>
 
-bool checkPermutation(const char *str1, const char *str2) {
+bool CheckPermutation(const char *str1, const char *str2) {
     size_t len1 = strlen(str1);
     size_t len2 = strlen(str2);
 

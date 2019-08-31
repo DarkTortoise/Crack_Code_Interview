@@ -3,7 +3,7 @@
 
 using namespace std;
 
-string stringCompression(const char *str) {
+string StringCompression(const char *str) {
     bool diff = false;
     size_t n_diff = 1;
     size_t diff_pos = 0;

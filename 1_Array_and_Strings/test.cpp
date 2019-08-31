@@ -3,23 +3,23 @@
 
 using namespace std;
 
-extern bool isUnique(const char *str);
-extern bool checkPermutation(const char *str1, const char *str2);
+extern bool IsUnique(const char *str);
+extern bool CheckPermutation(const char *str1, const char *str2);
 extern string URLify(const char *str, size_t size);
-extern bool parPermutation(const char *str);
-extern bool oneAway(const char *str1, const char *str2);
-extern string stringCompression(const char *str);
+extern bool ParPermutation(const char *str);
+extern bool OneAway(const char *str1, const char *str2);
+extern string StringCompression(const char *str);
 extern string stringCompressionV2(const string &str);
 extern bool StringRotation(const string &str1, const string &str2);
 
 TEST_CASE("Is Unique") {
-    REQUIRE(!isUnique("hello"));
-    REQUIRE(isUnique("abc"));
+    REQUIRE(!IsUnique("hello"));
+    REQUIRE(IsUnique("abc"));
 }
 
 TEST_CASE("Check Permutation") {
-    REQUIRE(checkPermutation("hello", "hello"));
-    REQUIRE(!checkPermutation("abc", "abd"));
+    REQUIRE(CheckPermutation("hello", "hello"));
+    REQUIRE(!CheckPermutation("abc", "abd"));
 }
 
 TEST_CASE("URLIFY") {
@@ -28,24 +28,24 @@ TEST_CASE("URLIFY") {
 }
 
 TEST_CASE("Parlindrome Permutation") {
-    REQUIRE(!parPermutation("tact coa"));
-    REQUIRE(parPermutation("abccba"));
+    REQUIRE(!ParPermutation("tact coa"));
+    REQUIRE(ParPermutation("abccba"));
 }
 
 TEST_CASE("One Away") {
-    REQUIRE(oneAway("abc", "afc"));
-    REQUIRE(oneAway("abcd", "abc"));
-    REQUIRE(oneAway("abc", "abcd"));
+    REQUIRE(OneAway("abc", "afc"));
+    REQUIRE(OneAway("abcd", "abc"));
+    REQUIRE(OneAway("abc", "abcd"));
 
-    REQUIRE(!oneAway("abc", "acb"));
-    REQUIRE(!oneAway("abc", "abcde"));
-    REQUIRE(!oneAway("abcde", "abc"));
+    REQUIRE(!OneAway("abc", "acb"));
+    REQUIRE(!OneAway("abc", "abcde"));
+    REQUIRE(!OneAway("abcde", "abc"));
 }
 
 TEST_CASE("String Compression") {
-    REQUIRE(stringCompression("aaabbbccc") == "a3b3c3");
-    REQUIRE(stringCompression("abbbcc") == "a1b3c2");
-    REQUIRE(stringCompression("abc") == "abc");
+    REQUIRE(StringCompression("aaabbbccc") == "a3b3c3");
+    REQUIRE(StringCompression("abbbcc") == "a1b3c2");
+    REQUIRE(StringCompression("abc") == "abc");
 
     REQUIRE(stringCompressionV2("aaabbbccc") == "a3b3c3");
     REQUIRE(stringCompressionV2("abbbcc") == "a1b3c2");

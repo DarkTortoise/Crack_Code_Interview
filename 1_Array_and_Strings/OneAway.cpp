@@ -31,7 +31,7 @@ bool oneEdit(const char *str1, const char *str2) {
     return diff;
 }
 
-bool oneAway(const char *str1, const char *str2) {
+bool OneAway(const char *str1, const char *str2) {
     if (strlen(str1) == strlen(str2))
         return oneReplace(str1, str2);
     else if (strlen(str1) == strlen(str2) + 1)
