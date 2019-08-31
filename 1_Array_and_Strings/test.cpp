@@ -10,6 +10,7 @@ extern bool parPermutation(const char *str);
 extern bool oneAway(const char *str1, const char *str2);
 extern string stringCompression(const char *str);
 extern string stringCompressionV2(const string &str);
+extern bool StringRotation(const string &str1, const string &str2);
 
 TEST_CASE("Is Unique") {
     REQUIRE(!isUnique("hello"));
@@ -49,4 +50,9 @@ TEST_CASE("String Compression") {
     REQUIRE(stringCompressionV2("aaabbbccc") == "a3b3c3");
     REQUIRE(stringCompressionV2("abbbcc") == "a1b3c2");
     REQUIRE(stringCompressionV2("abc") == "abc");
+}
+
+TEST_CASE("String Rotation") {
+    REQUIRE(StringRotation("abcdef", "defabc"));
+    REQUIRE(!StringRotation("abcdef", "efabcdr"));
 }
