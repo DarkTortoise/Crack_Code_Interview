@@ -2,6 +2,7 @@
 
 #include <list>
 #include "Intersection.h"
+#include "LoopDetection.h"
 
 using namespace std;
 
@@ -85,4 +86,29 @@ TEST_CASE("Intersection") {
     delete n3;
     delete n4;
     delete n5;
+}
+
+TEST_CASE("Loop Detection") {
+    auto n3 = new Node<int>(3);
+    auto n4 = new Node<int>(4);
+    auto n5 = new Node<int>(5);
+
+    LinkedList<int> L1{};
+    L1 = L1 + 1;
+    L1 = L1 + 2;
+    L1 = L1 + n3;
+    L1 = L1 + n4;
+    L1 = L1 + n5;
+    L1 = L1 + n3;
+
+    REQUIRE(LoopDetection(L1));
+
+    LinkedList<int> L2{};
+    L2 = L2 + 1;
+    L2 = L2 + 2;
+    L2 = L2 + n3;
+    L2 = L2 + n4;
+    L2 = L2 + n5;
+
+    REQUIRE(!LoopDetection(L2));
 }
