@@ -1,7 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.13)
 project(LinkedList)
 
-file(GLOB SOURCE_FILES "*.cpp")
+file(GLOB SOURCE_FILES "*.cpp" "*.h")
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 find_package(Catch2 REQUIRED)
