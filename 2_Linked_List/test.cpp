@@ -9,6 +9,7 @@ extern list<int> &RemoveDupsV2(list<int> &L);
 extern int KthElementToLast(const list<int> &L, unsigned int k);
 extern void DeleteMiddleNode(list<int> &L, list<int>::iterator it);
 extern list<int> Partition(const list<int> &L, int value);
+extern int SumList(list<int> &L1, list<int> &L2);
 
 TEST_CASE("Remove Dups") {
     list<int> L1{1, 1, 4, 4, 5};
@@ -40,4 +41,10 @@ TEST_CASE("Partition") {
     list<int> L3{4, 3, 2, 1, 5, 10, 9, 8, 7, 6};
 
     REQUIRE(L2 == L3);
+}
+
+TEST_CASE("Sum List") {
+    list<int> L1{7, 1, 6};
+    list<int> L2{5, 9, 2};
+    REQUIRE(SumList(L1, L2) == 912);
 }
