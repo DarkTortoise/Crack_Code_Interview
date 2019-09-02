@@ -10,6 +10,7 @@ extern int KthElementToLast(const list<int> &L, unsigned int k);
 extern void DeleteMiddleNode(list<int> &L, list<int>::iterator it);
 extern list<int> Partition(const list<int> &L, int value);
 extern int SumList(list<int> &L1, list<int> &L2);
+extern bool Palindrome(const list<int> &L);
 
 TEST_CASE("Remove Dups") {
     list<int> L1{1, 1, 4, 4, 5};
@@ -47,4 +48,14 @@ TEST_CASE("Sum List") {
     list<int> L1{7, 1, 6};
     list<int> L2{5, 9, 2};
     REQUIRE(SumList(L1, L2) == 912);
+}
+
+TEST_CASE("Palindrome") {
+    const list<int> L{1, 2, 3, 3, 2, 1};
+    const list<int> L1{1, 2, 3, 2, 1};
+    const list<int> L2{1, 2, 3, 4, 2, 1};
+
+    REQUIRE(Palindrome(L));
+    REQUIRE(Palindrome(L1));
+    REQUIRE(!Palindrome(L2));
 }
