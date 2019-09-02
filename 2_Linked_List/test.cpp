@@ -8,6 +8,7 @@ extern list<int> &RemoveDups(list<int> &L);
 extern list<int> &RemoveDupsV2(list<int> &L);
 extern int KthElementToLast(const list<int> &L, unsigned int k);
 extern void DeleteMiddleNode(list<int> &L, list<int>::iterator it);
+extern list<int> Partition(const list<int> &L, int value);
 
 TEST_CASE("Remove Dups") {
     list<int> L1{1, 1, 4, 4, 5};
@@ -31,4 +32,12 @@ TEST_CASE("Delete Middle Node") {
     DeleteMiddleNode(L1, next(L1.begin(), 2));
 
     REQUIRE(L1 == L2);
+}
+
+TEST_CASE("Partition") {
+    list<int> L1{10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    list<int> L2 = Partition(L1, 5);
+    list<int> L3{4, 3, 2, 1, 5, 10, 9, 8, 7, 6};
+
+    REQUIRE(L2 == L3);
 }
