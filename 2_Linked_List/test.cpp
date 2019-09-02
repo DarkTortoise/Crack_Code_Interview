@@ -62,30 +62,26 @@ TEST_CASE("Palindrome") {
 }
 
 TEST_CASE("Intersection") {
-    auto n1 = new Node<int>(1);
-    auto n2 = new Node<int>(2);
     auto n3 = new Node<int>(3);
     auto n4 = new Node<int>(4);
     auto n5 = new Node<int>(5);
 
     LinkedList<int> L1{};
-    L1 = L1 + n1;
-    L1 = L1 + n2;
+    L1 = L1 + 1;
+    L1 = L1 + 2;
     L1 = L1 + n3;
     L1 = L1 + n4;
     L1 = L1 + n5;
 
     LinkedList<int> L2{};
-    L2 = L2 + n1;
-    L2 = L2 + n2;
+    L2 = L2 + 1;
+    L2 = L2 + 2;
     L2 = L2 + n3;
     L2 = L2 + n4;
     L2 = L2 + n5;
 
     REQUIRE(Intersection(L1, L2));
 
-    delete n1;
-    delete n2;
     delete n3;
     delete n4;
     delete n5;
