@@ -31,13 +31,13 @@ TEST_CASE("Validate BST") {
     root->left->left = new Node<int>(100);
     root->right = new Node<int>(3);
 
-    REQUIRE(!ValidateBST(root));
+    REQUIRE(!ValidateBST(root, INT32_MIN, INT32_MAX));
     root->Release(root);
 
     root = new Node<int>(2);
     root->left = new Node<int>(1);
     root->right = new Node<int>(3);
 
-    REQUIRE(ValidateBST(root));
+    REQUIRE(ValidateBST(root, INT32_MIN, INT32_MAX));
     root->Release(root);
 }
