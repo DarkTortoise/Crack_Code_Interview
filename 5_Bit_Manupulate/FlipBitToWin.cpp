@@ -14,19 +14,21 @@ unsigned int FlipBitToWin(unsigned int number) {
         unsigned int digit = number % 2;
         number /= 2;
 
-        if (digit == 1) {
+        if (digit == 1)
             length++;
-            currentIndex++;
-        } else if (hasFlipped) {
-            prevMaxLength = max(length, prevMaxLength);
-            hasFlipped = false;
+        else if (hasFlipped) {
             length = currentIndex - flipIndex;
+            hasFlipped = false;
             flipIndex = currentIndex;
         } else {
             hasFlipped = true;
             flipIndex = currentIndex;
             length++;
         }
+
+        currentIndex++;
+        prevMaxLength = max(length, prevMaxLength);
+
     }
 
     return max(prevMaxLength, length);

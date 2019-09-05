@@ -10,4 +10,6 @@ TEST_CASE("Insertion") {
 
 TEST_CASE("Flip Bit to Win") {
     REQUIRE(FlipBitToWin(1775) == 8);
+    REQUIRE(FlipBitToWin(1024) == 2);
+    REQUIRE(FlipBitToWin(5698) == 4);
 }
