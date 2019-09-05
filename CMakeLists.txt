@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.0)
+project(Crack_Code_Interview)
+
+add_subdirectory(Primitive_Types)
+add_subdirectory(1_Array_and_Strings)
+add_subdirectory(2_Linked_List)
+add_subdirectory(4_Binary_Tree)
+add_subdirectory(5_Bit_Manupulate)
