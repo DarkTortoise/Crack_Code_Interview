@@ -4,6 +4,7 @@ extern short Parity(uint64_t x);
 extern long SwapBits(long x, int i, int j);
 extern long SameWeight(long x);
 extern long ReverseDigit(long x);
+extern bool PalindromeDecimal(long x);
 
 TEST_CASE("Computer parity for a large number") {
     REQUIRE(Parity(64) == 1);
@@ -22,4 +23,10 @@ TEST_CASE("Find a cloest interger with the same weight") {
 TEST_CASE("Reverse Digits") {
     REQUIRE(ReverseDigit(417) == 714);
     REQUIRE(ReverseDigit(-417) == -714);
+}
+
+TEST_CASE("Palindrome Decimal") {
+    REQUIRE(PalindromeDecimal(121));
+    REQUIRE(PalindromeDecimal(1221));
+    REQUIRE(!PalindromeDecimal(123));
 }
