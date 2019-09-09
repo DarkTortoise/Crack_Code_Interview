@@ -1,4 +1,4 @@
-#include <stdint-gcc.h>
+#include <cstdint>
 
 short Parity(uint64_t x) {
     x ^= x >> 32;
