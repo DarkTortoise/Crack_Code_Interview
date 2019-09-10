@@ -1,8 +1,9 @@
 #include <catch2/catch.hpp>
 
 extern short Parity(uint64_t x);
-extern unsigned long SwapBits(unsigned long x, int i, int j);
+extern long SwapBits(long x, int i, int j);
 extern long SameWeight(long x);
+extern long SameWeightInO1(long x);
 extern unsigned long ReverseBits(unsigned long x);
 extern long ReverseDigit(long x);
 extern bool PalindromeDecimal(long x);
@@ -23,6 +24,10 @@ TEST_CASE("Find a cloest interger with the same weight") {
     REQUIRE(SameWeight(10) == 9);
     REQUIRE(SameWeight(1) == 2);
     REQUIRE(SameWeight(7) == 11);
+
+    REQUIRE(SameWeightInO1(10) == 9);
+    REQUIRE(SameWeightInO1(1) == 2);
+    REQUIRE(SameWeightInO1(7) == 11);
 }
 
 TEST_CASE("Reverse Digits") {
@@ -48,8 +53,4 @@ TEST_CASE("Generate Random Number") {
 
 TEST_CASE("Count Bits") {
     REQUIRE(CountBits(125) == 6);
-}
-
-TEST_CASE("Reverse Bits") {
-    REQUIRE(ReverseBits(1) == 190U);
 }

@@ -1,3 +1,5 @@
+#include <cmath>
+
 long SameWeight(long x) {
     for (int i = 0; i < 64; i++) {
         if (((x >> i) & 1) != ((x >> (i + 1)) & 1)) {
