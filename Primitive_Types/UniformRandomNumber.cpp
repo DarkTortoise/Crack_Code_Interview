@@ -1,5 +1,6 @@
 #include <cmath>
 #include <ctime>
+#include <cstdlib>
 
 int ZeroOneRandom() {
     srand(time(nullptr));

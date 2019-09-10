@@ -5,8 +5,8 @@ extern long SwapBits(long x, int i, int j);
 extern long SameWeight(long x);
 extern long ReverseDigit(long x);
 extern bool PalindromeDecimal(long x);
-
 extern int UniformRandomNumber(int low, int high);
+extern int CountBits(int x);
 
 TEST_CASE("Computer parity for a large number") {
     REQUIRE(Parity(64) == 1);
@@ -41,4 +41,8 @@ TEST_CASE("Generate Random Number") {
     n = UniformRandomNumber(10, 20);
     REQUIRE(n >= 10);
     REQUIRE(n <= 20);
+}
+
+TEST_CASE("Count Bits") {
+    REQUIRE(CountBits(125) == 6);
 }
