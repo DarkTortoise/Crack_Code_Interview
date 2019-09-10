@@ -1,8 +1,9 @@
 #include <catch2/catch.hpp>
 
 extern short Parity(uint64_t x);
-extern long SwapBits(long x, int i, int j);
+extern unsigned long SwapBits(unsigned long x, int i, int j);
 extern long SameWeight(long x);
+extern unsigned long ReverseBits(unsigned long x);
 extern long ReverseDigit(long x);
 extern bool PalindromeDecimal(long x);
 extern int UniformRandomNumber(int low, int high);
@@ -47,4 +48,8 @@ TEST_CASE("Generate Random Number") {
 
 TEST_CASE("Count Bits") {
     REQUIRE(CountBits(125) == 6);
+}
+
+TEST_CASE("Reverse Bits") {
+    REQUIRE(ReverseBits(1) == 190U);
 }

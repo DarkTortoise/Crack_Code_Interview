@@ -1,6 +1,6 @@
 #include <cstdint>
 
-long ReverseBits(long x) {
+unsigned long ReverseBits(unsigned long x) {
     uint16_t mask = 0xFFFF;
     return ((x & mask) << 48) |
            (((x >> 16) & mask) << 32) |
