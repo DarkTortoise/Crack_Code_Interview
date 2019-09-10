@@ -7,9 +7,11 @@ extern long ReverseDigit(long x);
 extern bool PalindromeDecimal(long x);
 extern int UniformRandomNumber(int low, int high);
 extern int CountBits(int x);
+extern short ParityBasic(long x);
 
 TEST_CASE("Computer parity for a large number") {
     REQUIRE(Parity(64) == 1);
+    REQUIRE(ParityBasic(64) == 1);
 }
 
 TEST_CASE("Swap Bits") {
