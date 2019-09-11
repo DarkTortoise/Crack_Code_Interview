@@ -13,4 +13,8 @@ TEST_CASE("Dutch National Flag Problem") {
     array<int, 10> result{1, 2, 2, 5, 4, 1, 6, 9, 7, 7};
 
     REQUIRE(DutchNationalFlag(a1, 6) == result);
+
+    array<int, 10> a2{1, 2, 3, 1, 2, 3, 1, 2, 3, 1};
+    array<int, 10> r1{1, 1, 1, 1, 2, 2, 2, 3, 3, 3};
+    REQUIRE(DutchNationalFlagVariant1(a2, 1, 2, 3) == r1);
 }
