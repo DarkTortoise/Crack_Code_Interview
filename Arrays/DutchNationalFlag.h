@@ -1,5 +1,4 @@
-#ifndef CRACK_CODE_INTERVIEW_DUTCHNATIONALFLAG_H
-#define CRACK_CODE_INTERVIEW_DUTCHNATIONALFLAG_H
+#pragma once
 
 #include <array>
 
@@ -48,5 +47,3 @@ array<T, 10> &DutchNationalFlagVariant1(array<T, 10> &arr, T key1, T key2, T key
 
     return arr;
 }
-
-#endif //CRACK_CODE_INTERVIEW_DUTCHNATIONALFLAG_H
