@@ -3,6 +3,7 @@
 #include "ArrayPartition.h"
 #include "DutchNationalFlag.h"
 #include "AdvanceThroughArray.h"
+#include "DeleteDuplicates.h"
 
 using namespace std;
 
@@ -35,4 +36,18 @@ TEST_CASE("Advance Through a Array") {
     array<int, size> arr{2, 4, 1, 1, 0, 2, 3};
     REQUIRE(AdvanceThroughArray<size>(arr));
     REQUIRE(MinStepsToLastPos(arr) == 3);
+}
+
+TEST_CASE("Delete Duplicates from Array") {
+    vector<int> arr{2, 3, 5, 5, 7, 11, 11, 11, 13};
+    REQUIRE(DeleteDuplicatesVersion1(arr) == 6);
+
+    arr = vector<int>{2, 3, 5, 5, 7, 11, 11, 11, 13};
+    REQUIRE(DeleteDuplicatesVersion2(arr) == 6);
+
+    arr = vector<int>{2, 3, 5, 5, 7, 11, 11, 11, 13};
+    REQUIRE(DeleteDuplicatesVariant1(arr, 11) == 6);
+
+    arr = vector<int>{2, 3, 5, 5, 7, 11, 11, 11, 13};
+    REQUIRE(DeleteDuplicatesVariant1(arr, 5) == 7);
 }
