@@ -34,4 +34,5 @@ TEST_CASE("Advance Through a Array") {
     const size_t size = 7;
     array<int, size> arr{2, 4, 1, 1, 0, 2, 3};
     REQUIRE(AdvanceThroughArray<size>(arr));
+    REQUIRE(MinStepsToLastPos(arr) == 3);
 }
