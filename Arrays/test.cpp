@@ -4,6 +4,7 @@
 #include "DutchNationalFlag.h"
 #include "AdvanceThroughArray.h"
 #include "DeleteDuplicates.h"
+#include "BuySellStockOnce.h"
 
 using namespace std;
 
@@ -50,4 +51,12 @@ TEST_CASE("Delete Duplicates from Array") {
 
     arr = vector<int>{2, 3, 5, 5, 7, 11, 11, 11, 13};
     REQUIRE(DeleteDuplicatesVariant1(arr, 5) == 7);
+}
+
+TEST_CASE("Buy and Sell Stock Once") {
+    vector<int> prices{310, 315, 275, 295, 260, 270, 290, 230, 255, 250};
+    REQUIRE(BuySellStockOnce(prices) == 30);
+
+    vector<int> arr{1, 1, 2, 2, 2, 2, 3, 4, 5};
+    REQUIRE(BuySellStockOnceVariant(arr) == 4);
 }
