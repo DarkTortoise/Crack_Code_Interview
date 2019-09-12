@@ -2,6 +2,7 @@
 #include <list>
 #include "ArrayPartition.h"
 #include "DutchNationalFlag.h"
+#include "AdvanceThroughArray.h"
 
 using namespace std;
 
@@ -27,4 +28,10 @@ TEST_CASE("Dutch National Flag Problem") {
 TEST_CASE("Increment Arbitrary Precision Integer") {
     REQUIRE(IntegerIncrement(list<int>{1, 2, 9}) == 130);
     REQUIRE(IntegerIncrement(list<int>{9, 9, 9}) == 1000);
+}
+
+TEST_CASE("Advance Through a Array") {
+    const size_t size = 7;
+    array<int, size> arr{2, 4, 1, 1, 0, 2, 3};
+    REQUIRE(AdvanceThroughArray<size>(arr));
 }
