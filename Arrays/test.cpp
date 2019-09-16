@@ -5,6 +5,7 @@
 #include "AdvanceThroughArray.h"
 #include "DeleteDuplicates.h"
 #include "BuySellStockOnce.h"
+#include "ApplyPermutation.h"
 
 using namespace std;
 
@@ -59,4 +60,12 @@ TEST_CASE("Buy and Sell Stock Once") {
 
     vector<int> arr{1, 1, 2, 2, 2, 2, 3, 4, 5};
     REQUIRE(BuySellStockOnceVariant(arr) == 4);
+}
+
+TEST_CASE("Apply Permutation") {
+    vector<int> arr{'a', 'b', 'c', 'd'};
+    vector<int> perm{2, 0, 1, 3};
+    vector<int> result{'b', 'c', 'a', 'd'};
+
+    REQUIRE(ApplyPermutation(perm, arr) == result);
 }
