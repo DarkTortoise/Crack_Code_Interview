@@ -7,6 +7,7 @@
 #include "BuySellStockOnce.h"
 #include "ApplyPermutation.h"
 #include "NextPermutation.h"
+#include "SampleOfflineData.h"
 
 using namespace std;
 
@@ -79,4 +80,9 @@ TEST_CASE("Computer the next permutation") {
     arr = vector<int>{4, 3, 2, 1};
     result = vector<int>{4, 3, 1, 2};
     REQUIRE(PrevPermutation(arr) == result);
+}
+
+TEST_CASE("Sample Offline Data") {
+    vector<int> arr{1, 2, 3, 4, 5};
+    REQUIRE(SampleOfflineData(arr, 3).size() == 3);
 }
