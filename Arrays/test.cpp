@@ -6,6 +6,7 @@
 #include "DeleteDuplicates.h"
 #include "BuySellStockOnce.h"
 #include "ApplyPermutation.h"
+#include "NextPermutation.h"
 
 using namespace std;
 
@@ -68,4 +69,11 @@ TEST_CASE("Apply Permutation") {
     vector<int> result{'b', 'c', 'a', 'd'};
 
     REQUIRE(ApplyPermutation(perm, arr) == result);
+}
+
+TEST_CASE("Computer the next permutation") {
+    vector<int> arr{6, 2, 1, 5, 4, 3, 0};
+    vector<int> result{6, 2, 3, 0, 1, 4, 5};
+
+    REQUIRE(NextPermutation(arr) == result);
 }
