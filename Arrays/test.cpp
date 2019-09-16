@@ -74,6 +74,9 @@ TEST_CASE("Apply Permutation") {
 TEST_CASE("Computer the next permutation") {
     vector<int> arr{6, 2, 1, 5, 4, 3, 0};
     vector<int> result{6, 2, 3, 0, 1, 4, 5};
-
     REQUIRE(NextPermutation(arr) == result);
+
+    arr = vector<int>{4, 3, 2, 1};
+    result = vector<int>{4, 3, 1, 2};
+    REQUIRE(PrevPermutation(arr) == result);
 }
