@@ -3,7 +3,7 @@
 
 using namespace std;
 
-string BaseConversion(const string n, int base1, int base2) {
+string BaseConversion(const string &n, int base1, int base2) {
     int negative = 1;
     int pos = 0;
     int nBase1 = 0;
