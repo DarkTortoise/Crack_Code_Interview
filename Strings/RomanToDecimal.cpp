@@ -57,3 +57,64 @@ bool IsValidRoman(const string &roman) {
 
     return true;
 }
+
+string IntToShortestRoman(int n) {
+    map<char, int> romanToInt = {
+            {'I', 1},
+            {'V', 5},
+            {'X', 10},
+            {'L', 50},
+            {'C', 100},
+            {'D', 500},
+            {'M', 1000}
+    };
+
+    string result;
+
+    while (n) {
+        if (n / romanToInt['M'] >= 1) {
+            result.push_back('M');
+            n %= romanToInt['M'];
+        } else if (n / romanToInt['D'] >= 1) {
+            result.push_back('D');
+            n %= romanToInt['D'];
+        } else if (n / romanToInt['C'] >= 1) {
+            result.push_back('C');
+            n %= romanToInt['C'];
+        } else if (n / romanToInt['L'] >= 1) {
+            result.push_back('L');
+            n %= romanToInt['L'];
+        } else if (n / romanToInt['X'] >= 1) {
+            result.push_back('X');
+            n %= romanToInt['X'];
+        } else if (n / romanToInt['V'] >= 1) {
+            if (n == 6) {
+                result.append("VI");
+                break;
+            } else if (n == 7) {
+                result.append("VII");
+                break;
+            } else if (n == 8) {
+                result.append("IIX");
+                break;
+            } else if (n == 9) {
+                result.append("IX");
+                break;
+            }
+        } else if (n == 4) {
+            result.append("IV");
+            break;
+        } else if (n == 3) {
+            result.append("IIV");
+            break;
+        } else if (n == 1) {
+            result.push_back('I');
+            break;
+        } else if (n == 2) {
+            result.append("II");
+            break;
+        }
+    }
+
+    return result;
+}

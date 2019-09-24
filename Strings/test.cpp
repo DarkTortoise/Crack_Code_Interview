@@ -12,6 +12,7 @@ extern vector<string> PhoneNumberMnemonics(const string &digits);
 extern string LookAndSay(int n);
 extern int RomanToDecimal(const string &roman);
 extern bool IsValidRoman(const string &roman);
+extern string IntToShortestRoman(int n);
 
 TEST_CASE("String to Integer") {
     REQUIRE(StringToInteger("10") == 10);
@@ -54,4 +55,6 @@ TEST_CASE("Roman to Decimal") {
     REQUIRE(IsValidRoman("LVIIII"));
     REQUIRE(IsValidRoman("XXXXXIIIIIIIII"));
     REQUIRE(!IsValidRoman("LIL"));
+
+    REQUIRE(IntToShortestRoman(59) == "LIX");
 }
