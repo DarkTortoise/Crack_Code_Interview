@@ -9,6 +9,7 @@ extern int SpreadSheetColumnEncoding(const string &column);
 extern bool TestPalindromicity(const string &str);
 extern string ReverseAllWords(const string &str);
 extern vector<string> PhoneNumberMnemonics(const string &digits);
+extern string LookAndSay(int n);
 
 TEST_CASE("String to Integer") {
     REQUIRE(StringToInteger("10") == 10);
@@ -34,4 +35,10 @@ TEST_CASE("Reverse All Words in a Sentence") {
 
 TEST_CASE("Computer all mnemonics for a phone number") {
     REQUIRE(PhoneNumberMnemonics("2276696").size() == 3888);
+}
+
+TEST_CASE("Look and say problem") {
+    REQUIRE(LookAndSay(3) == "1211");
+    REQUIRE(LookAndSay(2) == "21");
+    REQUIRE(LookAndSay(4) == "111221");
 }
