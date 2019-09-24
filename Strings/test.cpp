@@ -10,6 +10,7 @@ extern bool TestPalindromicity(const string &str);
 extern string ReverseAllWords(const string &str);
 extern vector<string> PhoneNumberMnemonics(const string &digits);
 extern string LookAndSay(int n);
+extern int RomanToDecimal(const string &roman);
 
 TEST_CASE("String to Integer") {
     REQUIRE(StringToInteger("10") == 10);
@@ -41,4 +42,10 @@ TEST_CASE("Look and say problem") {
     REQUIRE(LookAndSay(3) == "1211");
     REQUIRE(LookAndSay(2) == "21");
     REQUIRE(LookAndSay(4) == "111221");
+}
+
+TEST_CASE("Roman to Decimal") {
+    REQUIRE(RomanToDecimal("LIX") == 59);
+    REQUIRE(RomanToDecimal("LVIIII") == 59);
+    REQUIRE(RomanToDecimal("XXXXXIIIIIIIII") == 59);
 }

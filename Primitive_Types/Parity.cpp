@@ -12,13 +12,13 @@ short ParityBasic(long x) {
 }
 
 short ParityCache(long x) {
-    short cache[65536] {0};
+    short cache[65536]{0};
     short wordSize = 16;
 
     return cache[(x >> (3 * wordSize))] ^
-    cache[(x >> (2 * wordSize)) & 0xFFFF] ^
-    cache[(x >> wordSize) & 0xFFFF] ^
-    cache[(x & 0xFFFF)];
+           cache[(x >> (2 * wordSize)) & 0xFFFF] ^
+           cache[(x >> wordSize) & 0xFFFF] ^
+           cache[(x & 0xFFFF)];
 }
 
 short Parity(uint64_t x) {
