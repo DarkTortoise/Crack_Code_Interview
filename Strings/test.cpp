@@ -6,6 +6,7 @@ using namespace std;
 extern int StringToInteger(const string &str);
 extern string BaseConversion(const string &n, int base1, int base2);
 extern int SpreadSheetColumnEncoding(const string &column);
+extern bool TestPalindromicity(const string &str);
 
 TEST_CASE("String to Integer") {
     REQUIRE(StringToInteger("10") == 10);
@@ -18,4 +19,9 @@ TEST_CASE("Base Conversion") {
 
 TEST_CASE("Computer Spread Sheet Column Encoding") {
     REQUIRE(SpreadSheetColumnEncoding("AA") == 27);
+}
+
+TEST_CASE("Test Palindromicity") {
+    REQUIRE(TestPalindromicity("abccba"));
+    REQUIRE(!TestPalindromicity("abcdef"));
 }
