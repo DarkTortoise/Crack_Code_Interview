@@ -8,6 +8,7 @@ extern string BaseConversion(const string &n, int base1, int base2);
 extern int SpreadSheetColumnEncoding(const string &column);
 extern bool TestPalindromicity(const string &str);
 extern string ReverseAllWords(const string &str);
+extern vector<string> PhoneNumberMnemonics(const string &digits);
 
 TEST_CASE("String to Integer") {
     REQUIRE(StringToInteger("10") == 10);
@@ -29,4 +30,8 @@ TEST_CASE("Test Palindromicity") {
 
 TEST_CASE("Reverse All Words in a Sentence") {
     REQUIRE(ReverseAllWords("Apple Origin Banana") == "Banana Origin Apple");
+}
+
+TEST_CASE("Computer all mnemonics for a phone number") {
+    REQUIRE(PhoneNumberMnemonics("2276696").size() == 3888);
 }
