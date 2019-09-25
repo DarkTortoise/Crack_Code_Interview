@@ -14,6 +14,7 @@ extern int RomanToDecimal(const string &roman);
 extern bool IsValidRoman(const string &roman);
 extern string IntToShortestRoman(int n);
 extern vector<string> ValidateIPAddress(const string &ip);
+extern string RunLengthEncoding(const string &str);
 
 TEST_CASE("String to Integer") {
     REQUIRE(StringToInteger("10") == 10);
@@ -62,4 +63,9 @@ TEST_CASE("Roman to Decimal") {
 
 TEST_CASE("Compute all valid ip address") {
     REQUIRE(ValidateIPAddress("19216811").size() == 6);
+}
+
+TEST_CASE("Run length encoding") {
+    REQUIRE(RunLengthEncoding("aaaabcccaa") == "4a1b3c2a");
+    REQUIRE(RunLengthEncoding("aabbccd") == "2a2b2c1d");
 }
