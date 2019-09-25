@@ -15,6 +15,7 @@ extern bool IsValidRoman(const string &roman);
 extern string IntToShortestRoman(int n);
 extern vector<string> ValidateIPAddress(const string &ip);
 extern string RunLengthEncoding(const string &str);
+extern size_t FirstSubstring(const string &s, const string &t);
 
 TEST_CASE("String to Integer") {
     REQUIRE(StringToInteger("10") == 10);
@@ -68,4 +69,9 @@ TEST_CASE("Compute all valid ip address") {
 TEST_CASE("Run length encoding") {
     REQUIRE(RunLengthEncoding("aaaabcccaa") == "4a1b3c2a");
     REQUIRE(RunLengthEncoding("aabbccd") == "2a2b2c1d");
+}
+
+TEST_CASE("Find the first occurrence of a substring") {
+    REQUIRE(FirstSubstring("GACGCCA", "CGC") == 2);
+    REQUIRE(FirstSubstring("abcdef", "def") == 3);
 }
