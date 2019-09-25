@@ -13,6 +13,7 @@ extern string LookAndSay(int n);
 extern int RomanToDecimal(const string &roman);
 extern bool IsValidRoman(const string &roman);
 extern string IntToShortestRoman(int n);
+extern vector<string> ValidateIPAddress(const string &ip);
 
 TEST_CASE("String to Integer") {
     REQUIRE(StringToInteger("10") == 10);
@@ -57,4 +58,8 @@ TEST_CASE("Roman to Decimal") {
     REQUIRE(!IsValidRoman("LIL"));
 
     REQUIRE(IntToShortestRoman(59) == "LIX");
+}
+
+TEST_CASE("Compute all valid ip address") {
+    REQUIRE(ValidateIPAddress("19216811").size() == 6);
 }
