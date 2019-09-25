@@ -16,8 +16,31 @@ public:
     template<size_t SIZE>
     static ListNodePtr CreateListFromArray(array<T, SIZE> &arr);
 
-    bool Equal(ListNodePtr &r1, ListNodePtr &r2);
+    template<class A>
+    friend bool operator==(const ListNodePtr &r1, const ListNodePtr &r2);
 };
+
+template<class T>
+using ListNodePtr = shared_ptr<ListNode<T>>;
+
+template<class A>
+bool operator==(const ListNodePtr<A> &r1, const ListNodePtr<A> &r2) {
+    auto ptr1 = r1;
+    auto ptr2 = r2;
+
+    while (ptr1 != nullptr and ptr2 != nullptr) {
+        if (ptr1->value != ptr2->value)
+            return false;
+
+        ptr1 = ptr1->next;
+        ptr2 = ptr2->next;
+    }
+
+    if (ptr1 == nullptr and ptr2 != nullptr)
+        return false;
+
+    return !(ptr1 != nullptr and ptr2 != nullptr);
+}
 
 template<class T>
 ListNode<T>::ListNode(T value) {
@@ -44,22 +67,4 @@ shared_ptr<ListNode<T>> ListNode<T>::CreateListFromArray(array<T, SIZE> &arr) {
     }
 
     return root;
-}
-
-template<class T>
-bool ListNode<T>::Equal(ListNode::ListNodePtr &r1, ListNode::ListNodePtr &r2) {
-    while (r1 != nullptr and r2 != nullptr) {
-        if (r1->value != r2->value) {
-            return false;
-        }
-
-        r1 = r1->next;
-        r2 = r2->next;
-    }
-
-    if (r1 == nullptr and r2 != nullptr)
-        return false;
-
-    return !(r1 != nullptr and r2 == nullptr);
-
 }

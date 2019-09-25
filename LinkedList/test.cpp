@@ -11,7 +11,7 @@ TEST_CASE("Linked list") {
     auto r1 = ListNode<int>::CreateListFromArray(arr);
     auto r2 = ListNode<int>::CreateListFromArray(arr);
 
-    REQUIRE((*r1).Equal(r1, r2));
+    REQUIRE(r1 == r2);
 }
 
 TEST_CASE("Merge two lists") {
@@ -25,5 +25,5 @@ TEST_CASE("Merge two lists") {
 
     auto r = MergeTwoLists(r1, r2);
 
-    REQUIRE((*r).Equal(r, r3));
+    REQUIRE(r == r3);
 }
