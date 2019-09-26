@@ -1,5 +1,5 @@
-#ifndef LINKEDLIST_OVERLAPPINGLISTS_H
-#define LINKEDLIST_OVERLAPPINGLISTS_H
+#ifndef LINKEDLIST_OVERLAPPINGLISTSNOCYCLE_H
+#define LINKEDLIST_OVERLAPPINGLISTSNOCYCLE_H
 
 #include "ListNode.h"
 
@@ -42,4 +42,4 @@ bool OverlappingLists(shared_ptr<ListNode<T>> &r1, shared_ptr<ListNode<T>> &r2) 
     return false;
 }
 
-#endif //LINKEDLIST_OVERLAPPINGLISTS_H
+#endif //LINKEDLIST_OVERLAPPINGLISTSNOCYCLE_H
