@@ -38,4 +38,13 @@ TEST_CASE("Remove duplicates") {
     auto r3 = RemoveDuplicates(r1);
 
     REQUIRE(r3 == r2);
+
+//    auto arr3 = array<int, 10>{1, 1, 1, 1, 2, 2, 2, 2, 3, 3};
+//    auto arr4 = array<int, 2>{3, 3};
+//
+//    auto r4 = ListNode<int>::CreateListFromArray(arr3);
+//    auto r5 = ListNode<int>::CreateListFromArray(arr4);
+//    auto r6 = RemoveK(r4, 3);
+//
+//    REQUIRE(r6 == r5);
 }
