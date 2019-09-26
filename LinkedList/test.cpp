@@ -3,6 +3,7 @@
 
 #include "ListNode.h"
 #include "MergeTwoLists.h"
+#include "RemoveDuplicates.h"
 
 using namespace std;
 
@@ -26,4 +27,15 @@ TEST_CASE("Merge two lists") {
     auto r = MergeTwoLists(r1, r2);
 
     REQUIRE(r == r3);
+}
+
+TEST_CASE("Remove duplicates") {
+    auto arr1 = array<int, 5>{1, 1, 2, 2, 3};
+    auto arr2 = array<int, 3>{1, 2, 3};
+
+    auto r1 = ListNode<int>::CreateListFromArray(arr1);
+    auto r2 = ListNode<int>::CreateListFromArray(arr2);
+    auto r3 = RemoveDuplicates(r1);
+
+    REQUIRE(r3 == r2);
 }
