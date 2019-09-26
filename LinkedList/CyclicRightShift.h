@@ -8,18 +8,34 @@ ListNodePtr<T> CyclicRightShift(ListNodePtr<T> r, int k) {
     ListNodePtr<T> kth = r, tail = r, ptr = r;
 
     int count = 0;
+    int length = 0;
 
     while (ptr) {
-        if (count == k) {
-            kth = ptr->next;
+        length++;
+        ptr = ptr->next;
+    }
+
+    k = length - k - 1;
+    ptr = r;
+
+    while (ptr) {
+        if (!ptr->next) {
+            ptr->next = r;
+            break;
         }
 
-        auto prev = ptr;
-        ptr = ptr->next;
-        prev->next = nullptr;
+        if (count == k) {
+            kth = ptr->next;
+            auto prev = ptr;
+            ptr = ptr->next;
+            prev->next = nullptr;
+        } else {
+            ptr = ptr->next;
+        }
         count++;
     }
 
+    return kth;
 }
 
 #endif //LINKEDLIST_CYCLICRIGHTSHIFT_H

@@ -4,6 +4,7 @@
 #include "ListNode.h"
 #include "MergeTwoLists.h"
 #include "RemoveDuplicates.h"
+#include "CyclicRightShift.h"
 
 using namespace std;
 
@@ -39,4 +40,12 @@ TEST_CASE("Remove duplicates") {
 //    auto r6 = RemoveK(r4, 3);
 //
 //    REQUIRE(r6 == r5);
+}
+
+TEST_CASE("Cyclic right shift") {
+    auto r1 = ListNode<int>::CreateListFromArray({1, 2, 3, 4, 5});
+    auto r2 = ListNode<int>::CreateListFromArray({3, 4, 5, 1, 2});
+    auto r3 = CyclicRightShift(r1, 3);
+
+    REQUIRE(r3 == r2);
 }
