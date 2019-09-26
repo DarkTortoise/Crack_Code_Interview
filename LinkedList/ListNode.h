@@ -13,8 +13,7 @@ public:
 
     explicit ListNode(T value);
 
-    template<size_t SIZE>
-    static ListNodePtr CreateListFromArray(array<T, SIZE> &arr);
+    static ListNodePtr CreateListFromArray(const initializer_list<T> &arr);
 
     template<class A>
     friend bool operator==(const ListNodePtr &r1, const ListNodePtr &r2);
@@ -49,8 +48,7 @@ ListNode<T>::ListNode(T value) {
 }
 
 template<class T>
-template<size_t SIZE>
-shared_ptr<ListNode<T>> ListNode<T>::CreateListFromArray(array<T, SIZE> &arr) {
+shared_ptr<ListNode<T>> ListNode<T>::CreateListFromArray(const initializer_list<T> &arr) {
     ListNodePtr root = nullptr;
     ListNodePtr ptr = root;
 
