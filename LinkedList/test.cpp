@@ -6,6 +6,7 @@
 #include "RemoveDuplicates.h"
 #include "CyclicRightShift.h"
 #include "8.11.h"
+#include "8.12.h"
 
 using namespace std;
 
