@@ -4,6 +4,7 @@
 #include "9.2.h"
 
 extern bool IsWellFormed(const string &expr);
+extern string NormalizePathname(const string &path);
 
 TEST_CASE("Implement a stack with max api") {
     Stack<int> s;
@@ -20,4 +21,9 @@ TEST_CASE("evaluate rpn expression") {
 TEST_CASE("test a string is well formed") {
     REQUIRE(IsWellFormed("[{()}]"));
     REQUIRE(!IsWellFormed("[{()}"));
+}
+
+TEST_CASE("normalize pathnames") {
+    REQUIRE(NormalizePathname("/usr/../") == "/");
+    REQUIRE(NormalizePathname("/usr/.././lib/") == "/lib/");
 }
