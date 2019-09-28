@@ -5,6 +5,7 @@
 #include "MergeTwoLists.h"
 #include "RemoveDuplicates.h"
 #include "CyclicRightShift.h"
+#include "8.11.h"
 
 using namespace std;
 
@@ -48,4 +49,10 @@ TEST_CASE("Cyclic right shift") {
     auto r3 = CyclicRightShift(r1, 3);
 
     REQUIRE(r3 == r2);
+}
+
+TEST_CASE("Test whether a singly list is palindrome") {
+    auto r1 = ListNode<int>::CreateListFromArray({1, 2, 3, 2, 1});
+
+    REQUIRE(IsPalindrome(r1));
 }
