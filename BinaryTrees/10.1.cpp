@@ -3,35 +3,27 @@
 
 using namespace std;
 
-void PostTravel(const vector<int> &tree, vector<int> &depth, size_t node, size_t height) {
-    if (node >= tree.size())
-        return;
-
-    if (tree[node] == -1) {
-        depth[node] = 0;
-        return;
-    }
+int PostTravel(const vector<int> &tree, size_t node, int height) {
+    if (node >= tree.size() or tree[node] == -1)
+        return height - 1;
 
     auto left = node * 2 + 1;
     auto right = node * 2 + 2;
 
-    PostTravel(tree, depth, left, height + 1);
-    PostTravel(tree, depth, right, height + 1);
+    auto leftDepth = PostTravel(tree, left, height + 1);
+    auto rightDepth = PostTravel(tree, right, height + 1);
+    auto diff = abs(long(leftDepth - rightDepth));
 
-    if (left >= tree.size() and right >= tree.size()) {
-        depth[node] = height;
-    } else if (depth[left] == -1 or depth[right] == -1) {
-        depth[node] = -1;
-    } else if (abs(long(depth[left] - depth[right])) > 1) {
-        depth[node] = -1;
-    } else {
-        depth[node] = max(depth[left], depth[right]);
+    if (leftDepth == -1 or rightDepth == -1)
+        return -1;
+
+    if (diff > 1)
+        return -1;
+    else {
+        return max(leftDepth, rightDepth);
     }
 }
 
 bool Problem_10_1(const vector<int> &tree) {
-    vector<int> depth(tree.size(), 0);
-    PostTravel(tree, depth, 0, 0);
-
-    return depth[0] != -1;
+    return PostTravel(tree, 0, 0) != -1;
 }
