@@ -5,6 +5,8 @@
 
 extern bool IsWellFormed(const string &expr);
 extern string NormalizePathname(const string &path);
+extern vector<int> Problem_9_6_O_N(const vector<int> &arr);
+extern vector<int> Problem_9_6_O_1(const vector<int> &arr);
 
 TEST_CASE("Implement a stack with max api") {
     Stack<int> s;
@@ -26,4 +28,10 @@ TEST_CASE("test a string is well formed") {
 TEST_CASE("normalize pathnames") {
     REQUIRE(NormalizePathname("/usr/../") == "/");
     REQUIRE(NormalizePathname("/usr/.././lib/") == "/lib/");
+}
+
+TEST_CASE("compute buliding with a sunset view") {
+    vector<int> arr{1, 2, 3, 1, 1};
+    REQUIRE(Problem_9_6_O_N(arr) == vector<int>{1, 3});
+    REQUIRE(Problem_9_6_O_1(arr) == vector<int>{1, 3});
 }
