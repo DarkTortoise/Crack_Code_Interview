@@ -1,5 +1,5 @@
-#ifndef STACKSQUEUES_8_2_H
-#define STACKSQUEUES_8_2_H
+#ifndef STACKSQUEUES_9_2_H
+#define STACKSQUEUES_9_2_H
 
 #include <stack>
 #include <string>
@@ -34,4 +34,4 @@ T RPN(const string &expr) {
     return ops.top();
 }
 
-#endif //STACKSQUEUES_8_2_H
+#endif //STACKSQUEUES_9_2_H

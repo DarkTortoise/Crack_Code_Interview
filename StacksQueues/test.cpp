@@ -1,7 +1,9 @@
 #include <catch2/catch.hpp>
 
-#include "8.1.h"
-#include "8.2.h"
+#include "9.1.h"
+#include "9.2.h"
+
+extern bool IsWellFormed(const string &expr);
 
 TEST_CASE("Implement a stack with max api") {
     Stack<int> s;
@@ -13,4 +15,9 @@ TEST_CASE("Implement a stack with max api") {
 
 TEST_CASE("evaluate rpn expression") {
     REQUIRE(RPN<int>("3,4,+,2,*,1,+") == 15);
+}
+
+TEST_CASE("test a string is well formed") {
+    REQUIRE(IsWellFormed("[{()}]"));
+    REQUIRE(!IsWellFormed("[{()}"));
 }

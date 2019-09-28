@@ -1,5 +1,5 @@
-#ifndef STACKSQUEUES_8_1_H
-#define STACKSQUEUES_8_1_H
+#ifndef STACKSQUEUES_9_1_H
+#define STACKSQUEUES_9_1_H
 
 #include <stack>
 #include <limits>
@@ -70,4 +70,4 @@ T Stack<T>::Max() {
     return !max.empty() ? max.top().first : -1;
 }
 
-#endif //STACKSQUEUES_8_1_H
+#endif //STACKSQUEUES_9_1_H
