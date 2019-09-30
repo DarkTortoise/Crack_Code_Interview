@@ -6,6 +6,7 @@ using namespace std;
 
 extern bool Problem_10_1(const vector<int> &tree);
 extern int Problem_10_1_Variant_2(const vector<int> &tree, int k);
+extern size_t Problem_10_3(const vector<int> &t, size_t n1, size_t n2);
 
 TEST_CASE("test if a tree is height balanced") {
     const vector<int> tree{1, 2, 3, 4, -1, 5, -1, 6, -1};
@@ -15,4 +16,11 @@ TEST_CASE("test if a tree is height balanced") {
     REQUIRE(Problem_10_1(t2));
 
     REQUIRE(Problem_10_1_Variant_2(tree, 1) == 1);
+}
+
+TEST_CASE("compute the lowest common ancestor in a binary tree") {
+    const vector<int> t{0, 1, 2, 3, 4};
+
+    REQUIRE(Problem_10_3(t, 3, 4) == 1);
+    REQUIRE(Problem_10_3(t, 4, 2) == 0);
 }
