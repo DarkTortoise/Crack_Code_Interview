@@ -10,6 +10,7 @@ extern size_t Problem_10_3(const vector<int> &t, size_t n1, size_t n2);
 extern int Problem_10_5(const vector<int> &t);
 extern bool Problem_10_2(const vector<int> &t);
 extern vector<int> Problem_10_7(const vector<int> &t);
+extern vector<int> Problem_10_8(const vector<int> &t);
 
 TEST_CASE("test if a tree is height balanced") {
     const vector<int> tree{1, 2, 3, 4, -1, 5, -1, 6, -1};
@@ -45,4 +46,10 @@ TEST_CASE("implement an inorder traversal without recursion") {
     const vector<int> t1{1, 2, 3, 4, 5};
     const vector<int> r{4, 2, 5, 1, 3};
     REQUIRE(Problem_10_7(t1) == r);
+}
+
+TEST_CASE("implement an preorder traversal without recursion") {
+    const vector<int> t1{1, 2, 3, 4, 5};
+    const vector<int> r{1, 2, 4, 5, 3};
+    REQUIRE(Problem_10_8(t1) == r);
 }
