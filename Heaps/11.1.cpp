@@ -1,6 +1,5 @@
 #include <vector>
 #include <queue>
-#include <stack>
 
 using namespace std;
 
@@ -8,7 +7,7 @@ vector<int> Problem_11_1(const vector<vector<int>> &arr) {
     vector<vector<int>::const_iterator> iters;
     priority_queue<int, vector<int>, greater<>> q;
     vector<int> result;
-    stack<vector<int>::const_iterator> s;
+    priority_queue<int, vector<int>, greater<>> s;
 
     for (auto &v: arr) {
         iters.push_back(v.cbegin());
@@ -23,7 +22,7 @@ vector<int> Problem_11_1(const vector<vector<int>> &arr) {
         for (size_t index = 0; index < iters.size(); index++) {
             auto &iter = iters[index];
             if (iter != arr[index].cend()) {
-                s.push(iter++);
+                s.push(*iter++);
             }
         }
 
@@ -38,7 +37,7 @@ vector<int> Problem_11_1(const vector<vector<int>> &arr) {
             result.push_back(q.top());
             q.pop();
 
-            q.push(*s.top());
+            q.push(s.top());
             s.pop();
         }
     }
