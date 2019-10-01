@@ -4,46 +4,42 @@
 
 using namespace std;
 
-vector<int> Problem_11_1(const vector<int> &v1, const vector<int> &v2, const vector<int> &v3) {
-    auto iter1 = begin(v1);
-    auto iter2 = begin(v2);
-    auto iter3 = begin(v3);
+vector<int> Problem_11_1(const vector<vector<int>> &arr) {
+    vector<vector<int>::const_iterator> iters;
     priority_queue<int, vector<int>, greater<>> q;
     vector<int> result;
-    stack<int> s;
+    stack<vector<int>::const_iterator> s;
 
-    q.push(*iter1);
-    q.push(*iter2);
-    q.push(*iter3);
+    for (auto &v: arr) {
+        iters.push_back(v.cbegin());
+    }
 
-    iter1++, iter2++, iter3++;
-    int index = 0;
+    for (auto &iter: iters) {
+        q.push(*iter);
+        iter++;
+    }
 
     while (!q.empty()) {
-        if (iter1 == end(v1) and iter2 == end(v2) and iter3 == end(v3)) {
+        for (size_t index = 0; index < iters.size(); index++) {
+            auto &iter = iters[index];
+            if (iter != arr[index].cend()) {
+                s.push(iter++);
+            }
+        }
+
+        if (s.empty()) {
             while (!q.empty()) {
                 result.push_back(q.top());
                 q.pop();
             }
-
-            break;
         }
 
-        result.push_back(q.top());
-        q.pop();
+        while (!s.empty()) {
+            result.push_back(q.top());
+            q.pop();
 
-        if (index == 0) {
-            q.push(*iter1);
-            iter1++;
-            index++;
-        } else if (index == 1) {
-            q.push(*iter2);
-            iter2++;
-            index++;
-        } else if (index == 2) {
-            q.push(*iter3);
-            iter3++;
-            index = 0;
+            q.push(*s.top());
+            s.pop();
         }
     }
 
