@@ -11,11 +11,11 @@ extern int Problem_10_5(const vector<int> &t);
 extern bool Problem_10_2(const vector<int> &t);
 extern vector<int> Problem_10_7(const vector<int> &t);
 extern vector<int> Problem_10_8(const vector<int> &t);
-extern int Problem_10_9(const vector<int> &t, const vector<int> &nNodes, int kth);
 extern bool Problem_10_6(const vector<int> &t, int sum);
 extern string Problem_10_6_Variant(const vector<int> &t, int sum);
 extern int Problem_10_9_O_N(const vector<int> &t, int kth);
 extern int Problem_10_10(const vector<int> &t, int node);
+extern vector<int> Problem_10_14(const vector<int> &t);
 
 TEST_CASE("test if a tree is height balanced") {
     const vector<int> tree{1, 2, 3, 4, -1, 5, -1, 6, -1};
@@ -59,12 +59,6 @@ TEST_CASE("implement an preorder traversal without recursion") {
     REQUIRE(Problem_10_8(t1) == r);
 }
 
-TEST_CASE("compute the kth node in the inorder traversal") {
-    const vector<int> t1 {1, 2, 3, 4, 5};
-    const vector<int> n {4, 2, 0, 0, 0};
-    REQUIRE(Problem_10_9(t1, n, 3) == 0);
-}
-
 TEST_CASE("compute the kth node in an inorder traversal") {
     const vector<int> t1{1, 2, 3, 4, 5};
     REQUIRE(Problem_10_9_O_N(t1, 3) == 4);
@@ -75,4 +69,10 @@ TEST_CASE("compute the successor") {
     REQUIRE(Problem_10_10(t1, 4) == 0);
     REQUIRE(Problem_10_10(t1, 3) == 1);
     REQUIRE(Problem_10_10(t1, 1) == 4);
+}
+
+TEST_CASE("Form a linked list from the leaves of a binary tree") {
+    const vector<int> t1{1, 2, 3, 4, 5};
+    const vector<int> r{2, 3, 4};
+    REQUIRE(Problem_10_14(t1) == r);
 }
