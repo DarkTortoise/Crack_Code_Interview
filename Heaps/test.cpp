@@ -9,6 +9,7 @@ extern vector<int> Problem_11_2(const vector<int> &arr);
 extern vector<int> Problem_11_3(const vector<int> &arr, int k);
 extern vector<int> Problem_11_4(const vector<int> &arr, int k);
 extern vector<double> Problem_11_5(const vector<int> &arr);
+extern vector<int> Problem_11_7(const vector<int> &arr);
 
 TEST_CASE("merge sorted file") {
     const vector<vector<int>> v4{{3, 5, 7},
@@ -46,4 +47,9 @@ TEST_CASE("compute the median of online data") {
     const vector<int> a1{1, 0, 3, 5, 2, 0, 1};
     const vector<double> r1{1, 0.5, 1, 2, 2, 1.5, 1};
     REQUIRE(Problem_11_5(a1) == r1);
+}
+
+TEST_CASE("implement a stack API using a heap") {
+    const vector<int> a1{1, 2, 3, 4, 5};
+    REQUIRE(Problem_11_7(a1) == a1);
 }
