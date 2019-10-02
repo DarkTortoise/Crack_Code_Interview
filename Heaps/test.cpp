@@ -7,6 +7,7 @@ using namespace std;
 extern vector<int> Problem_11_1(const vector<vector<int>> &arr);
 extern vector<int> Problem_11_2(const vector<int> &arr);
 extern vector<int> Problem_11_3(const vector<int> &arr, int k);
+extern vector<int> Problem_11_4(const vector<int> &arr, int k);
 
 TEST_CASE("merge sorted file") {
     const vector<vector<int>> v4{{3, 5, 7},
@@ -30,4 +31,12 @@ TEST_CASE("sort an increasing-decreasing array") {
 
 TEST_CASE("sort an almost-sorted array") {
     const vector<int> t1{3, -1, 2, 6, 4, 5, 8};
+}
+
+TEST_CASE("compute k cloest starts") {
+    const vector<int> stars{5, 2, 3, 1, 4};
+    const vector<int> r{2,
+                        2,
+                        1};
+    REQUIRE(Problem_11_4(stars, 3) == r);
 }

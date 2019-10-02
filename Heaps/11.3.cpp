@@ -4,7 +4,7 @@
 using namespace std;
 
 vector<int> Problem_11_3(const vector<int> &arr, int k) {
-    priority_queue<int, vector<int>, greater<>> q;
+    priority_queue<int, vector<int>, greater<int>> q;
     vector<int> result;
 
     for (auto iter = begin(arr); iter != next(begin(arr), k); iter++) {

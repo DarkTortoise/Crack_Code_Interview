@@ -5,9 +5,9 @@ using namespace std;
 
 vector<int> Problem_11_1(const vector<vector<int>> &arr) {
     vector<vector<int>::const_iterator> iters;
-    priority_queue<int, vector<int>, greater<>> q;
+    priority_queue<int, vector<int>, greater<int>> q;
     vector<int> result;
-    priority_queue<int, vector<int>, greater<>> s;
+    priority_queue<int, vector<int>, greater<int>> s;
 
     for (auto &v: arr) {
         iters.push_back(v.cbegin());
