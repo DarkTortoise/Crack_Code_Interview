@@ -65,3 +65,65 @@ size_t Problem_12_1_Variant_2(const vector<int> &arr) {
 
     return mid;
 }
+
+
+int FindFirst(const vector<int> &arr, int begin, int end, int k) {
+    int mid = begin + (end - begin) / 2;
+    int result = -1;
+
+    while (begin <= end) {
+        if (k < arr[mid]) {
+            end = mid - 1;
+        } else if (k > arr[mid]) {
+            begin = mid + 1;
+        } else {
+            result = mid;
+            end = mid - 1;
+        }
+
+        mid = begin + (end - begin) / 2;
+    }
+
+    return result;
+}
+
+int FindLast(const vector<int> &arr, int begin, int end, int k) {
+    int mid = begin + (end - begin) / 2;
+    int result = -1;
+
+    while (begin <= end) {
+        if (k < arr[mid]) {
+            end = mid - 1;
+        } else if (k > arr[mid]) {
+            begin = mid + 1;
+        } else {
+            result = mid;
+            begin = mid + 1;
+        }
+
+        mid = begin + (end - begin) / 2;
+    }
+
+    return result;
+}
+
+pair<int, int> Problem_12_1_Variant_3(const vector<int> &arr, int k) {
+    int begin = 0, end = arr.size(), mid = begin + (end - begin) / 2;
+
+    while (begin <= end) {
+        if (k < arr[mid]) {
+            end = mid - 1;
+        } else if (k > arr[mid]) {
+            begin = mid + 1;
+        } else {
+            int leftIndex = FindFirst(arr, begin, mid - 1, k);
+            int rightIndex = FindLast(arr, mid + 1, end, k);
+
+            return make_pair(leftIndex == -1 ? mid : leftIndex, rightIndex == -1 ? mid : rightIndex);
+        }
+
+        mid = begin + (end - begin) / 2;
+    }
+
+    return make_pair(-1, -1);
+}
