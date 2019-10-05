@@ -14,6 +14,7 @@ extern int Problem_12_2(const vector<int> &arr);
 extern int Problem_12_2_Variant_1(const vector<int> &arr);
 extern int Problem_12_3(const vector<int> &arr);
 extern int Problem_12_3_Variant_1(const vector<int> &arr);
+extern int Problem_12_4(int n);
 
 TEST_CASE("SEARCH A SORTED ARRAY FOR FIRST OCCURRENCE OF K") {
     const vector<int> a1{-14, -10, 2, 108, 108, 243, 285, 285, 285, 401};
@@ -50,4 +51,10 @@ TEST_CASE("SEARCH A CYCLICALLY SORTED ARRAY") {
     const vector<int> a3{1, 2, 3, 2, 1};
     REQUIRE(Problem_12_3_Variant_1(a2) == 3);
     REQUIRE(Problem_12_3_Variant_1(a3) == 2);
+}
+
+TEST_CASE("COMPUTE THE INTEGER SQUARE ROOT") {
+//    REQUIRE(Problem_12_4(21) == 4);
+//    REQUIRE(Problem_12_4(300) == 17);
+    REQUIRE(Problem_12_4(16) == 4);
 }
