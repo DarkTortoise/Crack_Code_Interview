@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -126,4 +127,21 @@ pair<int, int> Problem_12_1_Variant_3(const vector<int> &arr, int k) {
     }
 
     return make_pair(-1, -1);
+}
+
+bool Problem_12_1_Variant_4(const vector<string> &arr, const string &p) {
+    int begin = 0, end = arr.size(), mid = begin + (end - begin) / 2;
+    size_t length = p.size();
+
+    while (begin <= end) {
+        if (p < arr[mid].substr(0, length)) {
+            end = mid - 1;
+        } else if (p > arr[mid].substr(0, length)) {
+            begin = mid + 1;
+        } else {
+            return true;
+        }
+    }
+
+    return false;
 }

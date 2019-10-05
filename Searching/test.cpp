@@ -9,6 +9,7 @@ extern size_t Problem_12_1_Binary_Search(const vector<int> &arr, int k);
 extern size_t Problem_12_1_Variant_1(const vector<int> &arr, int k);
 extern size_t Problem_12_1_Variant_2(const vector<int> &arr);
 extern pair<int, int> Problem_12_1_Variant_3(const vector<int> &arr, int k);
+extern bool Problem_12_1_Variant_4(const vector<string> &arr, const string &p);
 
 TEST_CASE("SEARCH A SORTED ARRAY FOR FIRST OCCURRENCE OF K") {
     const vector<int> a1{-14, -10, 2, 108, 108, 243, 285, 285, 285, 401};
@@ -24,4 +25,7 @@ TEST_CASE("SEARCH A SORTED ARRAY FOR FIRST OCCURRENCE OF K") {
 
     const vector<int> a4{1, 2, 2, 4, 4, 4, 7, 11, 11, 13};
     REQUIRE(Problem_12_1_Variant_3(a4, 11) == make_pair(7, 8));
+
+    const vector<string> a5{"abae", "abbe", "abce", "abde", "abee"};
+    REQUIRE(Problem_12_1_Variant_4(a5, "abc"));
 }
