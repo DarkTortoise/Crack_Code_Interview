@@ -12,6 +12,7 @@ extern pair<int, int> Problem_12_1_Variant_3(const vector<int> &arr, int k);
 extern bool Problem_12_1_Variant_4(const vector<string> &arr, const string &p);
 extern int Problem_12_2(const vector<int> &arr);
 extern int Problem_12_2_Variant_1(const vector<int> &arr);
+extern int Problem_12_3(const vector<int> &arr);
 
 TEST_CASE("SEARCH A SORTED ARRAY FOR FIRST OCCURRENCE OF K") {
     const vector<int> a1{-14, -10, 2, 108, 108, 243, 285, 285, 285, 401};
@@ -38,4 +39,9 @@ TEST_CASE("SEARCH A SORTED ARRAY FOR ENTRY EQAUL TO ITS INDEX") {
 
     const vector<int> a3{-2, 0, 2, 2, 2, 2, 2};
     REQUIRE(Problem_12_2_Variant_1(a3) == 2);
+}
+
+TEST_CASE("SEARCH A CYCLICALLY SORTED ARRAY") {
+    const vector<int> a1{378, 478, 550, 631, 103, 203, 220, 234, 279, 368};
+    REQUIRE(Problem_12_3(a1) == 4);
 }
