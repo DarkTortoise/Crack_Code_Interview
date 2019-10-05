@@ -37,9 +37,7 @@ TEST_CASE("sort an almost-sorted array") {
 
 TEST_CASE("compute k cloest starts") {
     const vector<int> stars{5, 2, 3, 1, 4};
-    const vector<int> r{2,
-                        2,
-                        1};
+    const vector<int> r{2, 2, 1};
     REQUIRE(Problem_11_4(stars, 3) == r);
 }
 
