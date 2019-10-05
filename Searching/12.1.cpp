@@ -29,3 +29,21 @@ size_t Problem_12_1_Binary_Search(const vector<int> &arr, int k) {
 
     return result;
 }
+
+size_t Problem_12_1_Variant_1(const vector<int> &arr, int k) {
+    size_t begin = 0, end = arr.size(), mid = begin + (end - begin) / 2;
+    size_t result = -1;
+
+    while (begin <= end) {
+        if (arr[mid] > k) {
+            result = mid;
+            end = mid - 1;
+        } else if (arr[mid] <= k) {
+            begin = mid + 1;
+        }
+
+        mid = begin + (end - begin) / 2;
+    }
+
+    return result;
+}
