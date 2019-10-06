@@ -16,6 +16,7 @@ extern int Problem_12_3(const vector<int> &arr);
 extern int Problem_12_3_Variant_1(const vector<int> &arr);
 extern int Problem_12_4(int n);
 extern bool Problem_12_6(int arr[6][5], int n);
+extern pair<int, int> Problem_12_7(const vector<int> &arr);
 
 TEST_CASE("SEARCH A SORTED ARRAY FOR FIRST OCCURRENCE OF K") {
     const vector<int> a1{-14, -10, 2, 108, 108, 243, 285, 285, 285, 401};
@@ -71,4 +72,9 @@ TEST_CASE("SEARCH IN A 2D SORTED ARRAY") {
     };
     REQUIRE(!Problem_12_6(arr, 7));
     REQUIRE(Problem_12_6(arr, 8));
+}
+
+TEST_CASE("FIND THE MIN AND MAX SUMULTANEOUSLY") {
+    const vector<int> a1{3, 2, 5, 1, 2, 4};
+    REQUIRE(Problem_12_7(a1) == make_pair(1, 5));
 }
