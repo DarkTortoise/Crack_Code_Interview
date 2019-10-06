@@ -18,6 +18,7 @@ extern int Problem_12_4(int n);
 extern bool Problem_12_6(int arr[6][5], int n);
 extern pair<int, int> Problem_12_7(const vector<int> &arr);
 extern int Problem_12_8(vector<int> &arr, int k);
+extern int Problem_12_8_Variant_1(vector<int> &arr);
 
 TEST_CASE("SEARCH A SORTED ARRAY FOR FIRST OCCURRENCE OF K") {
     const vector<int> a1{-14, -10, 2, 108, 108, 243, 285, 285, 285, 401};
@@ -84,4 +85,7 @@ TEST_CASE("FIND THE KTH LARGEST ELEMENT") {
     vector<int> a1{3, 2, 1, 5, 4};
     REQUIRE(Problem_12_8(a1, 2) == 4);
     REQUIRE(Problem_12_8(a1, 1) == 5);
+
+    vector<int> a2{3, 2, 1, 5, 4, 6, 7};
+    REQUIRE(Problem_12_8_Variant_1(a2) == 5);
 }
