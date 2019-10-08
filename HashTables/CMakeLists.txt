@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(HashTables)
 
+set(CMAKE_CXX_STANDARD 17)
 file(GLOB SOURCE_FILES "*.h" "*.cpp")
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
