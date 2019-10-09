@@ -36,7 +36,5 @@ TEST_CASE("FIND THE SMALLEST SUBARRAY COVERING ALL VALUES") {
 
     REQUIRE(Problem_13_7(a1, s1) == r1);
     REQUIRE(Problem_13_7(a1, s2) == r2);
-
-    auto r = Problem_13_7_Variant_1(a1);
     REQUIRE(Problem_13_7_Variant_1(a1) == r3);
 }
