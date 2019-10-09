@@ -28,7 +28,10 @@ TEST_CASE("FIND THE SMALLEST SUBARRAY COVERING ALL VALUES") {
     const vector<string> a1{"apple", "banana", "apple", "apple", "dog", "cat", "apple",
                             "dog", "banana", "apple", "cat", "dog"};
     unordered_set<string> s1{"banana", "cat"};
+    unordered_set<string> s2{"cat", "dog"};
     pair<size_t, size_t> r1 = make_pair(8, 10);
+    pair<size_t, size_t> r2 = make_pair(10, 11);
 
     REQUIRE(Problem_13_7(a1, s1) == r1);
+    REQUIRE(Problem_13_7(a1, s2) == r2);
 }
