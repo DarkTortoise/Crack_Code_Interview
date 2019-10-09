@@ -12,6 +12,7 @@ extern pair<int, int> Problem_13_7(const vector<string> &arr, unordered_set<stri
 extern pair<int, int> Problem_13_7_Variant_1(const vector<string> &arr);
 extern pair<size_t, size_t> Problem_13_8(const vector<string> &arr, const vector<string> &subarr);
 extern size_t Problem_13_9(const vector<string> &arr);
+extern size_t Problem_13_10(const vector<int> &arr);
 
 TEST_CASE("test for palindrimic permutations") {
     REQUIRE(Problem_13_1("edified"));
@@ -51,4 +52,11 @@ TEST_CASE("FIND SMALLEST SUBARRAY SEQUENTIALIY COVERING ALL VALUES") {
 TEST_CASE("find the longest subarray with distinct entries") {
     const vector<string> a1{"f", "s", "f", "e", "t", "w", "e", "n", "w", "e"};
     REQUIRE(Problem_13_9(a1) == 5);
+}
+
+TEST_CASE("FIND THE LENGTH OF A LONGEST CONTAINED INTERVAL") {
+    const vector<int> a1{3, -2, 7, 9, 8, 1, 2, 0, -1, 5, 8};
+    const vector<int> a2{10, 5, 3, 11, 6, 100, 4};
+    REQUIRE(Problem_13_10(a1) == 6);
+    REQUIRE(Problem_13_10(a2) == 4);
 }
