@@ -10,6 +10,7 @@ extern bool Problem_13_2(const string &letter, const string &mag);
 extern int Problem_13_6(const vector<string> &arr);
 extern pair<int, int> Problem_13_7(const vector<string> &arr, unordered_set<string> &queries);
 extern pair<int, int> Problem_13_7_Variant_1(const vector<string> &arr);
+extern pair<size_t, size_t> Problem_13_8(const vector<string> &arr, const vector<string> &subarr);
 
 TEST_CASE("test for palindrimic permutations") {
     REQUIRE(Problem_13_1("edified"));
@@ -37,4 +38,11 @@ TEST_CASE("FIND THE SMALLEST SUBARRAY COVERING ALL VALUES") {
     REQUIRE(Problem_13_7(a1, s1) == r1);
     REQUIRE(Problem_13_7(a1, s2) == r2);
     REQUIRE(Problem_13_7_Variant_1(a1) == r3);
+}
+
+TEST_CASE("FIND SMALLEST SUBARRAY SEQUENTIALIY COVERING ALL VALUES") {
+    const vector<string> a1{"apple", "banana", "cat", "apple"};
+    const vector<string> a2{"banana", "apple"};
+    const pair<size_t, size_t> r1 = make_pair(1, 3);
+    REQUIRE(Problem_13_8(a1, a2) == r1);
 }
