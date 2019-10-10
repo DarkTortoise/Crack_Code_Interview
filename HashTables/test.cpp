@@ -13,6 +13,7 @@ extern pair<int, int> Problem_13_7_Variant_1(const vector<string> &arr);
 extern pair<size_t, size_t> Problem_13_8(const vector<string> &arr, const vector<string> &subarr);
 extern size_t Problem_13_9(const vector<string> &arr);
 extern size_t Problem_13_10(const vector<int> &arr);
+extern bool Problem_13_12(const string &str, const vector<string> &arr);
 
 TEST_CASE("test for palindrimic permutations") {
     REQUIRE(Problem_13_1("edified"));
@@ -59,4 +60,10 @@ TEST_CASE("FIND THE LENGTH OF A LONGEST CONTAINED INTERVAL") {
     const vector<int> a2{10, 5, 3, 11, 6, 100, 4};
     REQUIRE(Problem_13_10(a1) == 6);
     REQUIRE(Problem_13_10(a2) == 4);
+}
+
+TEST_CASE("COMPUTE ALL STRING DECOMPOSITION") {
+    const string str = "amanaplanacanal";
+    const vector<string> a1{"can", "apl", "ana"};
+    REQUIRE(Problem_13_12(str, a1));
 }
