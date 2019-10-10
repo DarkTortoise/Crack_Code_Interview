@@ -14,6 +14,7 @@ extern pair<size_t, size_t> Problem_13_8(const vector<string> &arr, const vector
 extern size_t Problem_13_9(const vector<string> &arr);
 extern size_t Problem_13_10(const vector<int> &arr);
 extern bool Problem_13_12(const string &str, const vector<string> &arr);
+extern bool Problem_13_13(const vector<int> &arr);
 
 TEST_CASE("test for palindrimic permutations") {
     REQUIRE(Problem_13_1("edified"));
@@ -66,4 +67,9 @@ TEST_CASE("COMPUTE ALL STRING DECOMPOSITION") {
     const string str = "amanaplanacanal";
     const vector<string> a1{"can", "apl", "ana"};
     REQUIRE(Problem_13_12(str, a1));
+}
+
+TEST_CASE("TEST THE COLLATZ CONJECTURE") {
+    const vector<int> a1{11, 12, 13};
+    REQUIRE(Problem_13_13(a1));
 }
