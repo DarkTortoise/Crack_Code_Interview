@@ -1,6 +1,7 @@
 #include <catch2/catch.hpp>
 
 #include <vector>
+#include "BinaryTree.h"
 
 using namespace std;
 
@@ -16,6 +17,24 @@ extern string Problem_10_6_Variant(const vector<int> &t, int sum);
 extern int Problem_10_9_O_N(const vector<int> &t, int kth);
 extern int Problem_10_10(const vector<int> &t, int node);
 extern vector<int> Problem_10_14(const vector<int> &t);
+
+TEST_CASE("TEST BINART TREE") {
+    auto n1 = new Node<int>(1);
+    auto n2 = new Node<int>(2);
+    auto n3 = new Node<int>(3);
+    auto n4 = new Node<int>(4);
+    auto n5 = new Node<int>(5);
+    auto n6 = new Node<int>(6);
+
+    n2->left = n4;
+    n2->right = n5;
+    n3->right = n6;
+    n1->left = n2;
+    n2->right = n3;
+
+    REQUIRE(PrintTree(n1) == PrintTree(n1));
+}
+
 
 TEST_CASE("test if a tree is height balanced") {
     const vector<int> tree{1, 2, 3, 4, -1, 5, -1, 6, -1};
