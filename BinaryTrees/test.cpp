@@ -2,11 +2,10 @@
 
 #include <vector>
 #include "BinaryTree.h"
+#include "10.1.h"
 
 using namespace std;
 
-extern bool Problem_10_1(const vector<int> &tree);
-extern int Problem_10_1_Variant_2(const vector<int> &tree, int k);
 extern size_t Problem_10_3(const vector<int> &t, size_t n1, size_t n2);
 extern int Problem_10_5(const vector<int> &t);
 extern bool Problem_10_2(const vector<int> &t);
@@ -17,6 +16,44 @@ extern string Problem_10_6_Variant(const vector<int> &t, int sum);
 extern int Problem_10_9_O_N(const vector<int> &t, int kth);
 extern int Problem_10_10(const vector<int> &t, int node);
 extern vector<int> Problem_10_14(const vector<int> &t);
+
+template<class T>
+shared_ptr<Node<T>> CreateTree_10_1() {
+    auto A = make_shared<Node<int>>(314);
+    auto B = make_shared<Node<int>>(6);
+    auto I = make_shared<Node<int>>(6);
+    auto C = make_shared<Node<int>>(271);
+    auto F = make_shared<Node<int>>(561);
+    auto J = make_shared<Node<int>>(2);
+    auto O = make_shared<Node<int>>(271);
+    auto D = make_shared<Node<int>>(28);
+    auto E = make_shared<Node<int>>(0);
+    auto G = make_shared<Node<int>>(3);
+    auto K = make_shared<Node<int>>(1);
+    auto P = make_shared<Node<int>>(28);
+    auto H = make_shared<Node<int>>(17);
+    auto L = make_shared<Node<int>>(401);
+    auto N = make_shared<Node<int>>(257);
+    auto M = make_shared<Node<int>>(641);
+
+    A->left = B;
+    A->right = I;
+    B->left = C;
+    B->right = F;
+    C->left = D;
+    C->right = E;
+    F->right = G;
+    G->left = H;
+    I->left = J;
+    I->right = O;
+    J->right = K;
+    K->left = L;
+    K->right = N;
+    L->right = M;
+    O->right = P;
+
+    return A;
+}
 
 TEST_CASE("TEST BINART TREE") {
     auto n1 = make_shared<Node<int>>(1);
@@ -36,14 +73,9 @@ TEST_CASE("TEST BINART TREE") {
 }
 
 
-TEST_CASE("test if a tree is height balanced") {
-    const vector<int> tree{1, 2, 3, 4, -1, 5, -1, 6, -1};
-    REQUIRE(!Problem_10_1(tree));
-
-    const vector<int> t2{1, 2, 3, 4, 5};
-    REQUIRE(Problem_10_1(t2));
-
-    REQUIRE(Problem_10_1_Variant_2(tree, 1) == 1);
+TEST_CASE("10.1 TEST IF A BINARY TREE IS HEIGT-BALANCED") {
+    auto root = CreateTree_10_1<int>();
+    REQUIRE(!Problem_10_1<int>(root));
 }
 
 TEST_CASE("test if a tree is a symmetric tree") {
