@@ -19,12 +19,12 @@ extern int Problem_10_10(const vector<int> &t, int node);
 extern vector<int> Problem_10_14(const vector<int> &t);
 
 TEST_CASE("TEST BINART TREE") {
-    auto n1 = new Node<int>(1);
-    auto n2 = new Node<int>(2);
-    auto n3 = new Node<int>(3);
-    auto n4 = new Node<int>(4);
-    auto n5 = new Node<int>(5);
-    auto n6 = new Node<int>(6);
+    auto n1 = make_shared<Node<int>>(1);
+    auto n2 = make_shared<Node<int>>(2);
+    auto n3 = make_shared<Node<int>>(3);
+    auto n4 = make_shared<Node<int>>(4);
+    auto n5 = make_shared<Node<int>>(5);
+    auto n6 = make_shared<Node<int>>(6);
 
     n2->left = n4;
     n2->right = n5;
