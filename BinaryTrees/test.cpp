@@ -5,10 +5,10 @@
 #include "10.1.h"
 #include "10.2.h"
 #include "10.3.h"
+#include "10.5.h"
 
 using namespace std;
 
-extern int Problem_10_5(const vector<int> &t);
 extern vector<int> Problem_10_7(const vector<int> &t);
 extern vector<int> Problem_10_8(const vector<int> &t);
 extern bool Problem_10_6(const vector<int> &t, int sum);
@@ -106,6 +106,44 @@ vector<shared_ptr<Node<T>>> CreateTree_10_3() {
     return vector<shared_ptr<Node<T>>>{A, D, H, B};
 }
 
+template<class T>
+shared_ptr<Node<T>> CreateTree_10_5() {
+    auto A = make_shared<Node<int>>(1);
+    auto B = make_shared<Node<int>>(0);
+    auto I = make_shared<Node<int>>(1);
+    auto C = make_shared<Node<int>>(0);
+    auto F = make_shared<Node<int>>(1);
+    auto J = make_shared<Node<int>>(0);
+    auto O = make_shared<Node<int>>(0);
+    auto D = make_shared<Node<int>>(0);
+    auto E = make_shared<Node<int>>(1);
+    auto G = make_shared<Node<int>>(1);
+    auto K = make_shared<Node<int>>(0);
+    auto P = make_shared<Node<int>>(0);
+    auto H = make_shared<Node<int>>(0);
+    auto L = make_shared<Node<int>>(1);
+    auto N = make_shared<Node<int>>(0);
+    auto M = make_shared<Node<int>>(1);
+
+    A->SetLeft(B, A);
+    A->SetRight(I, A);
+    B->SetLeft(C, B);
+    B->SetRight(F, B);
+    C->SetLeft(D, C);
+    C->SetRight(E, C);
+    F->SetRight(G, F);
+    G->SetLeft(H, G);
+    I->SetLeft(J, I);
+    I->SetRight(O, I);
+    J->SetRight(K, J);
+    K->SetLeft(L, K);
+    K->SetRight(N, K);
+    L->SetRight(M, L);
+    O->SetRight(P, O);
+
+    return A;
+}
+
 TEST_CASE("10.1") {
     auto root = CreateTree_10_1<int>();
     REQUIRE(!Problem_10_1<int>(root));
@@ -127,9 +165,9 @@ TEST_CASE("10.3") {
     REQUIRE(n4 == n3);
 }
 
-TEST_CASE("sum the root-to-leaf in a binary tree") {
-    const vector<int> t1{1, 0, 0, 1, 0, -1, -1, -1, -1, 1, -1};
-    REQUIRE(Problem_10_5(t1) == 16);
+TEST_CASE("10.5") {
+    auto root = CreateTree_10_5<int>();
+    REQUIRE(Problem_10_5(root) == 126);
 }
 
 TEST_CASE("implement an inorder traversal without recursion") {
