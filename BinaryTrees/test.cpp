@@ -4,10 +4,10 @@
 #include "BinaryTree.h"
 #include "10.1.h"
 #include "10.2.h"
+#include "10.3.h"
 
 using namespace std;
 
-extern size_t Problem_10_3(const vector<int> &t, size_t n1, size_t n2);
 extern int Problem_10_5(const vector<int> &t);
 extern vector<int> Problem_10_7(const vector<int> &t);
 extern vector<int> Problem_10_8(const vector<int> &t);
@@ -68,23 +68,43 @@ shared_ptr<Node<T>> CreateTree_10_2() {
     return A;
 }
 
-TEST_CASE("TEST BINART TREE") {
-    auto n1 = make_shared<Node<int>>(1);
-    auto n2 = make_shared<Node<int>>(2);
-    auto n3 = make_shared<Node<int>>(3);
-    auto n4 = make_shared<Node<int>>(4);
-    auto n5 = make_shared<Node<int>>(5);
-    auto n6 = make_shared<Node<int>>(6);
+template<class T>
+vector<shared_ptr<Node<T>>> CreateTree_10_3() {
+    auto A = make_shared<Node<int>>(314);
+    auto B = make_shared<Node<int>>(6);
+    auto I = make_shared<Node<int>>(6);
+    auto C = make_shared<Node<int>>(271);
+    auto F = make_shared<Node<int>>(561);
+    auto J = make_shared<Node<int>>(2);
+    auto O = make_shared<Node<int>>(271);
+    auto D = make_shared<Node<int>>(28);
+    auto E = make_shared<Node<int>>(0);
+    auto G = make_shared<Node<int>>(3);
+    auto K = make_shared<Node<int>>(1);
+    auto P = make_shared<Node<int>>(28);
+    auto H = make_shared<Node<int>>(17);
+    auto L = make_shared<Node<int>>(401);
+    auto N = make_shared<Node<int>>(257);
+    auto M = make_shared<Node<int>>(641);
 
-    n2->left = n4;
-    n2->right = n5;
-    n3->right = n6;
-    n1->left = n2;
-    n2->right = n3;
+    A->SetLeft(B, A);
+    A->SetRight(I, A);
+    B->SetLeft(C, B);
+    B->SetRight(F, B);
+    C->SetLeft(D, C);
+    C->SetRight(E, C);
+    F->SetRight(G, F);
+    G->SetLeft(H, G);
+    I->SetLeft(J, I);
+    I->SetRight(O, I);
+    J->SetRight(K, J);
+    K->SetLeft(L, K);
+    K->SetRight(N, K);
+    L->SetRight(M, L);
+    O->SetRight(P, O);
 
-    REQUIRE(PrintTree(n1) == PrintTree(n1));
+    return vector<shared_ptr<Node<T>>>{A, D, H, B};
 }
-
 
 TEST_CASE("10.1") {
     auto root = CreateTree_10_1<int>();
@@ -96,11 +116,15 @@ TEST_CASE("10.2") {
     REQUIRE(Problem_10_2(root));
 }
 
-TEST_CASE("compute the lowest common ancestor in a binary tree") {
-    const vector<int> t{0, 1, 2, 3, 4};
+TEST_CASE("10.3") {
+    auto nodes = CreateTree_10_3<int>();
+    auto root = nodes[0];
+    auto n1 = nodes[1];
+    auto n2 = nodes[2];
+    auto n3 = nodes[3];
+    auto n4 = Problem_10_3(root, n1, n2);
 
-    REQUIRE(Problem_10_3(t, 3, 4) == 1);
-    REQUIRE(Problem_10_3(t, 4, 2) == 0);
+    REQUIRE(n4 == n3);
 }
 
 TEST_CASE("sum the root-to-leaf in a binary tree") {
