@@ -3,12 +3,12 @@
 #include <vector>
 #include "BinaryTree.h"
 #include "10.1.h"
+#include "10.2.h"
 
 using namespace std;
 
 extern size_t Problem_10_3(const vector<int> &t, size_t n1, size_t n2);
 extern int Problem_10_5(const vector<int> &t);
-extern bool Problem_10_2(const vector<int> &t);
 extern vector<int> Problem_10_7(const vector<int> &t);
 extern vector<int> Problem_10_8(const vector<int> &t);
 extern bool Problem_10_6(const vector<int> &t, int sum);
@@ -55,6 +55,19 @@ shared_ptr<Node<T>> CreateTree_10_1() {
     return A;
 }
 
+template<class T>
+shared_ptr<Node<T>> CreateTree_10_2() {
+    auto A = make_shared<Node<T>>(314);
+    auto B = make_shared<Node<T>>(6);
+    auto E = make_shared<Node<T>>(6);
+    auto C = make_shared<Node<T>>(2);
+    auto F = make_shared<Node<T>>(2);
+    auto D = make_shared<Node<T>>(3);
+    auto G = make_shared<Node<T>>(3);
+
+    return A;
+}
+
 TEST_CASE("TEST BINART TREE") {
     auto n1 = make_shared<Node<int>>(1);
     auto n2 = make_shared<Node<int>>(2);
@@ -73,17 +86,14 @@ TEST_CASE("TEST BINART TREE") {
 }
 
 
-TEST_CASE("10.1 TEST IF A BINARY TREE IS HEIGT-BALANCED") {
+TEST_CASE("10.1") {
     auto root = CreateTree_10_1<int>();
     REQUIRE(!Problem_10_1<int>(root));
 }
 
-TEST_CASE("test if a tree is a symmetric tree") {
-    const vector<int> t{314, 6, 6, -1, 2, 2, -1, -1, -1, -1, 3, 3, -1, -1, -1};
-    REQUIRE(Problem_10_2(t));
-
-    const vector<int> t2{314, 6, 6, -1, 561, 2, -1, -1, -1, -1, 3, 1, -1, -1, -1};
-    REQUIRE(!Problem_10_2(t2));
+TEST_CASE("10.2") {
+    auto root = CreateTree_10_2<int>();
+    REQUIRE(Problem_10_2(root));
 }
 
 TEST_CASE("compute the lowest common ancestor in a binary tree") {
