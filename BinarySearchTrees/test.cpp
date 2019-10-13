@@ -6,6 +6,7 @@
 #include "15.2.h"
 #include "15.3.h"
 #include "15.4.h"
+#include "15.6.h"
 
 template<class T>
 shared_ptr<BST<T>> CreateTree_15_1() {
@@ -69,4 +70,12 @@ TEST_CASE("15.4") {
     auto n2 = root->left->right->right;
     auto n3 = root->left;
     REQUIRE(Problem_15_4(root, n1, n2) == n3);
+}
+
+TEST_CASE("15.6") {
+    const vector<int> a1{5, 10, 15};
+    const vector<int> a2{3, 6, 9, 12, 15};
+    const vector<int> a3{8, 16, 24};
+    const vector<int> result{15, 15, 16};
+    REQUIRE(Problem_15_6(a1, a2, a3) == result);
 }
