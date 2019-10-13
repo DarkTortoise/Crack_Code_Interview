@@ -10,6 +10,7 @@
 #include "10.7.h"
 #include "10.8.h"
 #include "10.9.h"
+#include "10.10.h"
 
 using namespace std;
 
@@ -174,6 +175,44 @@ shared_ptr<Node<T>> CreateTree_10_9() {
 }
 
 template<class T>
+vector<shared_ptr<Node<T>>> CreateTree_10_10() {
+    auto A = make_shared<Node<int>>(314);
+    auto B = make_shared<Node<int>>(6);
+    auto I = make_shared<Node<int>>(6);
+    auto C = make_shared<Node<int>>(271);
+    auto F = make_shared<Node<int>>(561);
+    auto J = make_shared<Node<int>>(2);
+    auto O = make_shared<Node<int>>(271);
+    auto D = make_shared<Node<int>>(28);
+    auto E = make_shared<Node<int>>(0);
+    auto G = make_shared<Node<int>>(3);
+    auto K = make_shared<Node<int>>(1);
+    auto P = make_shared<Node<int>>(28);
+    auto H = make_shared<Node<int>>(17);
+    auto L = make_shared<Node<int>>(401);
+    auto N = make_shared<Node<int>>(257);
+    auto M = make_shared<Node<int>>(641);
+
+    A->SetLeft(B, A);
+    A->SetRight(I, A);
+    B->SetLeft(C, B);
+    B->SetRight(F, B);
+    C->SetLeft(D, C);
+    C->SetRight(E, C);
+    F->SetRight(G, F);
+    G->SetLeft(H, G);
+    I->SetLeft(J, I);
+    I->SetRight(O, I);
+    J->SetRight(K, J);
+    K->SetLeft(L, K);
+    K->SetRight(N, K);
+    L->SetRight(M, L);
+    O->SetRight(P, O);
+
+    return vector<shared_ptr<Node<T>>>{A, N, J};
+}
+
+template<class T>
 void InOrder(const shared_ptr<Node<T>> root, vector<T> &result) {
     if (!root) {
         return;
@@ -248,8 +287,11 @@ TEST_CASE("10.9") {
     REQUIRE(node == root);
 }
 
-TEST_CASE("Form a linked list from the leaves of a binary tree") {
-    const vector<int> t1{1, 2, 3, 4, 5};
-    const vector<int> r{2, 3, 4};
-    REQUIRE(Problem_10_14(t1) == r);
+TEST_CASE("10.10") {
+    auto nodes = CreateTree_10_10<int>();
+    auto root = nodes[0];
+    auto node = nodes[1];
+    auto parent = nodes[2];
+
+    REQUIRE(Problem_10_10(root, node) == parent);
 }
