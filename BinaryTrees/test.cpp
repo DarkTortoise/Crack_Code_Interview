@@ -7,6 +7,7 @@
 #include "10.3.h"
 #include "10.5.h"
 #include "10.6.h"
+#include "10.7.h"
 
 using namespace std;
 
@@ -144,6 +145,17 @@ shared_ptr<Node<T>> CreateTree_10_5() {
     return A;
 }
 
+template<class T>
+void PreOrder(const shared_ptr<Node<T>> root, vector<T> &result) {
+    if (!root) {
+        return;
+    }
+
+    PreOrder(root->left, result);
+    result.push_back(root->value);
+    PreOrder(root->right, result);
+}
+
 TEST_CASE("10.1") {
     auto root = CreateTree_10_1<int>();
     REQUIRE(!Problem_10_1<int>(root));
@@ -177,10 +189,11 @@ TEST_CASE("10.6") {
     REQUIRE(Problem_10_6(root, 591));
 }
 
-TEST_CASE("implement an preorder traversal without recursion") {
-    const vector<int> t1{1, 2, 3, 4, 5};
-    const vector<int> r{1, 2, 4, 5, 3};
-    REQUIRE(Problem_10_8(t1) == r);
+TEST_CASE("10.7") {
+    auto root = CreateTree_10_1<int>();
+    vector<int> result{};
+    PreOrder(root, result);
+    REQUIRE(Problem_10_7(root) == result);
 }
 
 TEST_CASE("compute the kth node in an inorder traversal") {
