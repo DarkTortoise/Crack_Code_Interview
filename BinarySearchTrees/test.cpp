@@ -3,6 +3,7 @@
 #include <limits>
 #include "BST.h"
 #include "15.1.h"
+#include "15.2.h"
 
 template<class T>
 shared_ptr<BST<T>> CreateTree_15_1() {
@@ -45,4 +46,9 @@ shared_ptr<BST<T>> CreateTree_15_1() {
 TEST_CASE("15.1") {
     auto root = CreateTree_15_1<int>();
     REQUIRE(Problem_15_1(root, numeric_limits<int>::min(), numeric_limits<int>::max()));
+}
+
+TEST_CASE("15.2") {
+    auto root = CreateTree_15_1<int>();
+    REQUIRE(Problem_15_2(root, 23) == 29);
 }
