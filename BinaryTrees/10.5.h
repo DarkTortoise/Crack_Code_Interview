@@ -1,10 +1,13 @@
+#ifndef BINARY_TREE_10_5_H
+#define BINARY_TREE_10_5_H
+
 #include <memory>
 #include "BinaryTree.h"
 
 using namespace std;
 
 template<class T>
-void PreOrder(const shared_ptr<Node<T>> root, int &sum) {
+void Problem_10_5(const shared_ptr<Node<T>> root, T &sum) {
     if (!root)
         return;
 
@@ -13,15 +16,9 @@ void PreOrder(const shared_ptr<Node<T>> root, int &sum) {
     } else {
         if (root->parent)
             root->value += root->parent->value * 2;
-        PreOrder(root->left, sum);
-        PreOrder(root->right, sum);
+        Problem_10_5(root->left, sum);
+        Problem_10_5(root->right, sum);
     }
 }
 
-template<class T>
-int Problem_10_5(const shared_ptr<Node<T>> root) {
-    int sum = 0;
-    PreOrder(root, sum);
-
-    return sum;
-}
+#endif

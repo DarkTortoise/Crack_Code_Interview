@@ -6,12 +6,12 @@
 #include "10.2.h"
 #include "10.3.h"
 #include "10.5.h"
+#include "10.6.h"
 
 using namespace std;
 
 extern vector<int> Problem_10_7(const vector<int> &t);
 extern vector<int> Problem_10_8(const vector<int> &t);
-extern bool Problem_10_6(const vector<int> &t, int sum);
 extern string Problem_10_6_Variant(const vector<int> &t, int sum);
 extern int Problem_10_9_O_N(const vector<int> &t, int kth);
 extern int Problem_10_10(const vector<int> &t, int node);
@@ -167,13 +167,14 @@ TEST_CASE("10.3") {
 
 TEST_CASE("10.5") {
     auto root = CreateTree_10_5<int>();
-    REQUIRE(Problem_10_5(root) == 126);
+    int sum = 0;
+    Problem_10_5(root, sum);
+    REQUIRE(sum == 126);
 }
 
-TEST_CASE("implement an inorder traversal without recursion") {
-    const vector<int> t1{1, 2, 3, 4, 5};
-    const vector<int> r{4, 2, 5, 1, 3};
-    REQUIRE(Problem_10_7(t1) == r);
+TEST_CASE("10.6") {
+    auto root = CreateTree_10_1<int>();
+    REQUIRE(Problem_10_6(root, 591));
 }
 
 TEST_CASE("implement an preorder traversal without recursion") {
