@@ -5,6 +5,7 @@
 #include "15.1.h"
 #include "15.2.h"
 #include "15.3.h"
+#include "15.4.h"
 
 template<class T>
 shared_ptr<BST<T>> CreateTree_15_1() {
@@ -60,4 +61,12 @@ TEST_CASE("15.3") {
     vector<int> r1{};
     Problem_15_3(root, 3, r1);
     REQUIRE(r1 == result);
+}
+
+TEST_CASE("15.4") {
+    auto root = CreateTree_15_1<int>();
+    auto n1 = root->left->left;
+    auto n2 = root->left->right->right;
+    auto n3 = root->left;
+    REQUIRE(Problem_15_4(root, n1, n2) == n3);
 }
