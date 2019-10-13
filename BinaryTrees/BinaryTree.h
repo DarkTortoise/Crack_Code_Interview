@@ -9,10 +9,10 @@ using namespace std;
 template<class T>
 struct Node {
 public:
-    T value;
+    T value, extra;
     shared_ptr<Node<T>> left, right, parent;
 
-    explicit Node(T value) : value(value) {
+    explicit Node(T value) : value(value), extra(0) {
         left = nullptr;
         right = nullptr;
     }

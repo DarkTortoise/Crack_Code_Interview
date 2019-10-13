@@ -9,6 +9,7 @@
 #include "10.6.h"
 #include "10.7.h"
 #include "10.8.h"
+#include "10.9.h"
 
 using namespace std;
 
@@ -145,6 +146,34 @@ shared_ptr<Node<T>> CreateTree_10_5() {
 }
 
 template<class T>
+shared_ptr<Node<T>> CreateTree_10_9() {
+    auto A = make_shared<Node<T>>(314);
+    auto B = make_shared<Node<T>>(6);
+    auto E = make_shared<Node<T>>(6);
+    auto C = make_shared<Node<T>>(2);
+    auto F = make_shared<Node<T>>(2);
+    auto D = make_shared<Node<T>>(3);
+    auto G = make_shared<Node<T>>(3);
+
+    A->SetLeft(B, A);
+    A->SetRight(E, A);
+    B->SetRight(C, B);
+    C->SetRight(D, C);
+    E->SetLeft(F, E);
+    F->SetLeft(G, F);
+
+    A->extra = 6;
+    B->extra = 2;
+    C->extra = 1;
+    D->extra = 0;
+    E->extra = 2;
+    F->extra = 1;
+    G->extra = 0;
+
+    return A;
+}
+
+template<class T>
 void InOrder(const shared_ptr<Node<T>> root, vector<T> &result) {
     if (!root) {
         return;
@@ -212,11 +241,11 @@ TEST_CASE("10.8") {
     REQUIRE(Problem_10_8(root) == result);
 }
 
-TEST_CASE("compute the successor") {
-    const vector<int> t1{1, 2, 3, 4, 5};
-    REQUIRE(Problem_10_10(t1, 4) == 0);
-    REQUIRE(Problem_10_10(t1, 3) == 1);
-    REQUIRE(Problem_10_10(t1, 1) == 4);
+TEST_CASE("10.9") {
+    auto root = CreateTree_10_9<int>();
+    auto node = shared_ptr<Node<int>>();
+    Problem_10_9(root, 3, node);
+    REQUIRE(node == root);
 }
 
 TEST_CASE("Form a linked list from the leaves of a binary tree") {
