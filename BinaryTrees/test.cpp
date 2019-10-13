@@ -8,11 +8,10 @@
 #include "10.5.h"
 #include "10.6.h"
 #include "10.7.h"
+#include "10.8.h"
 
 using namespace std;
 
-extern vector<int> Problem_10_7(const vector<int> &t);
-extern vector<int> Problem_10_8(const vector<int> &t);
 extern string Problem_10_6_Variant(const vector<int> &t, int sum);
 extern int Problem_10_9_O_N(const vector<int> &t, int kth);
 extern int Problem_10_10(const vector<int> &t, int node);
@@ -146,13 +145,23 @@ shared_ptr<Node<T>> CreateTree_10_5() {
 }
 
 template<class T>
-void PreOrder(const shared_ptr<Node<T>> root, vector<T> &result) {
+void InOrder(const shared_ptr<Node<T>> root, vector<T> &result) {
     if (!root) {
         return;
     }
 
-    PreOrder(root->left, result);
+    InOrder(root->left, result);
     result.push_back(root->value);
+    InOrder(root->right, result);
+}
+
+template<class T>
+void PreOrder(const shared_ptr<Node<T>> root, vector<T> &result) {
+    if (!root)
+        return;
+
+    result.push_back(root->value);
+    PreOrder(root->left, result);
     PreOrder(root->right, result);
 }
 
@@ -192,13 +201,15 @@ TEST_CASE("10.6") {
 TEST_CASE("10.7") {
     auto root = CreateTree_10_1<int>();
     vector<int> result{};
-    PreOrder(root, result);
+    InOrder(root, result);
     REQUIRE(Problem_10_7(root) == result);
 }
 
-TEST_CASE("compute the kth node in an inorder traversal") {
-    const vector<int> t1{1, 2, 3, 4, 5};
-    REQUIRE(Problem_10_9_O_N(t1, 3) == 4);
+TEST_CASE("10.8") {
+    vector<int> result{};
+    auto root = CreateTree_10_1<int>();
+    PreOrder(root, result);
+    REQUIRE(Problem_10_8(root) == result);
 }
 
 TEST_CASE("compute the successor") {
