@@ -7,6 +7,7 @@
 #include "15.3.h"
 #include "15.4.h"
 #include "15.6.h"
+#include "15.9.h"
 
 template<class T>
 shared_ptr<BST<T>> CreateTree_15_1() {
@@ -46,6 +47,30 @@ shared_ptr<BST<T>> CreateTree_15_1() {
     return A;
 }
 
+template<class T>
+shared_ptr<BST<T>> CreateTree_15_9() {
+    auto n1 = make_shared<BST<T>>(11);
+    auto n2 = make_shared<BST<T>>(3);
+    auto n3 = make_shared<BST<T>>(17);
+    auto n4 = make_shared<BST<T>>(2);
+    auto n5 = make_shared<BST<T>>(5);
+    auto n6 = make_shared<BST<T>>(13);
+    auto n7 = make_shared<BST<T>>(19);
+    auto n8 = make_shared<BST<T>>(7);
+    auto n9 = make_shared<BST<T>>(23);
+
+    n1->left = n2;
+    n1->right = n3;
+    n2->left = n4;
+    n2->right = n5;
+    n5->right = n8;
+    n3->left = n6;
+    n3->right = n7;
+    n7->right = n9;
+
+    return n1;
+}
+
 TEST_CASE("15.1") {
     auto root = CreateTree_15_1<int>();
     REQUIRE(Problem_15_1(root, numeric_limits<int>::min(), numeric_limits<int>::max()));
@@ -78,4 +103,10 @@ TEST_CASE("15.6") {
     const vector<int> a3{8, 16, 24};
     const vector<int> result{15, 15, 16};
     REQUIRE(Problem_15_6(a1, a2, a3) == result);
+}
+
+TEST_CASE("15.9") {
+    const vector<int> a1{2, 3, 5, 7, 11, 13, 17, 19, 23};
+    auto root = Problem_15_9(a1, 0, a1.size());
+    REQUIRE(root != nullptr);
 }
