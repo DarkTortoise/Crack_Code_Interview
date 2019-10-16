@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -8,11 +9,14 @@ void GetSubset(vector<int> &arr, size_t ptr, vector<int> &subset, vector<vector<
         return;
     }
 
-    subset.push_back(*(arr.begin() + ptr));
-    GetSubset(arr, ptr + 1, subset, result);
-    subset.pop_back();
-    GetSubset(arr, ptr + 1, subset, result);
-
+    if (find(subset.begin(), subset.end(), *(arr.begin() + ptr)) == subset.end()) {
+        subset.push_back(*(arr.begin() + ptr));
+        GetSubset(arr, ptr + 1, subset, result);
+        subset.pop_back();
+        GetSubset(arr, ptr + 1, subset, result);
+    } else {
+        GetSubset(arr, ptr + 1, subset, result);
+    }
 }
 
 vector<vector<int>> Problem_16_4(vector<int> &arr) {

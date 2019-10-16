@@ -20,7 +20,7 @@ TEST_CASE("16.3") {
 }
 
 TEST_CASE("16.4") {
-    vector<int> a1{0, 1, 2};
+    vector<int> a1{1, 2, 3, 2};
     auto result = Problem_16_4(a1);
-    REQUIRE(result.size() == 8);
+    REQUIRE(result.size() == 12);
 }
