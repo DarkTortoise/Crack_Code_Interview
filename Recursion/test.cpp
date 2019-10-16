@@ -5,6 +5,7 @@ using namespace std;
 
 extern void Problem_16_3(const vector<int> &arr, vector<vector<int>> &result);
 extern void Problem_16_3_Variant(const vector<int> &arr, vector<vector<int>> &result);
+extern vector<vector<int>> Problem_16_4(vector<int> &arr);
 
 TEST_CASE("16.3") {
     const vector<int> a1{2, 3, 5, 7};
@@ -16,4 +17,10 @@ TEST_CASE("16.3") {
     vector<vector<int>> r2{};
     Problem_16_3_Variant(a2, r2);
     REQUIRE(r2.size() == 12);
+}
+
+TEST_CASE("16.4") {
+    vector<int> a1{0, 1, 2};
+    auto result = Problem_16_4(a1);
+    REQUIRE(result.size() == 8);
 }
