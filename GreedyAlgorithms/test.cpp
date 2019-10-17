@@ -7,6 +7,7 @@ extern int Problem_18_1(vector<int> &tasks);
 extern int Problem_18_2(vector<int> &arr);
 extern vector<int> Problem_18_3(vector<pair<int, int>> &intervals);
 extern vector<size_t> Problem_18_4(vector<size_t> &arr, int sum);
+extern vector<int> Problem_18_4_Variant(vector<int> &arr, int T);
 
 TEST_CASE("18.1") {
     vector<int> a1{5, 2, 1, 6, 4, 4};
@@ -32,5 +33,8 @@ TEST_CASE("18.4") {
 
     vector<size_t> a2{5, 2, 3, 4, 3};
     vector<size_t> r2{2, 3, 4};
+    vector<int> a3{5, 2, 3, 4, 3};
+    vector<int> r3{2, 4, 5};
     REQUIRE(Problem_18_4(a2, 9) == r2);
+    REQUIRE(Problem_18_4_Variant(a3, 12) == r3);
 }
