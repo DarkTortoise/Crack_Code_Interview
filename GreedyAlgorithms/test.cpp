@@ -27,6 +27,10 @@ TEST_CASE("18.3") {
 
 TEST_CASE("18.4") {
     vector<size_t> a1{11, 2, 5, 7, 3};
-    vector<size_t> result{5, 5, 11};
+    vector<size_t> result{3, 7, 11};
     REQUIRE(Problem_18_4(a1, 21) == result);
+
+    vector<size_t> a2{5, 2, 3, 4, 3};
+    vector<size_t> r2{2, 3, 4};
+    REQUIRE(Problem_18_4(a2, 9) == r2);
 }
