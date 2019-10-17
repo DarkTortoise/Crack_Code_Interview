@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(PrimitiveTypes)
+project(Primitive_Types)
 
 file(GLOB SOURCE_FILES "*.h" "*.cpp")
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
