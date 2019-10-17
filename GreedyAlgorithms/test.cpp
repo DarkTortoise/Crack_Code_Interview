@@ -4,8 +4,14 @@
 using namespace std;
 
 extern int Problem_18_1(vector<int> &tasks);
+extern int Problem_18_2(vector<int> &arr);
 
 TEST_CASE("18.1") {
     vector<int> a1{5, 2, 1, 6, 4, 4};
     REQUIRE(Problem_18_1(a1) == 8);
+}
+
+TEST_CASE("18.2") {
+    vector<int> a1{2, 5, 1, 3};
+    REQUIRE(Problem_18_2(a1) == 10);
 }
