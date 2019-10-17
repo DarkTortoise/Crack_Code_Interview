@@ -5,6 +5,7 @@ using namespace std;
 
 extern int Problem_18_1(vector<int> &tasks);
 extern int Problem_18_2(vector<int> &arr);
+extern vector<int> Problem_18_3(vector<pair<int, int>> &intervals);
 
 TEST_CASE("18.1") {
     vector<int> a1{5, 2, 1, 6, 4, 4};
@@ -14,4 +15,11 @@ TEST_CASE("18.1") {
 TEST_CASE("18.2") {
     vector<int> a1{2, 5, 1, 3};
     REQUIRE(Problem_18_2(a1) == 10);
+}
+
+TEST_CASE("18.3") {
+    vector<pair<int, int>> a1{make_pair(1, 2), make_pair(2, 3), make_pair(3, 4),
+                              make_pair(2, 3), make_pair(3, 4), make_pair(4, 5)};
+    vector<int> result{2, 4};
+    REQUIRE(Problem_18_3(a1) == result);
 }
