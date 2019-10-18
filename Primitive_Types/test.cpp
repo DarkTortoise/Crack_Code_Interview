@@ -5,6 +5,7 @@ extern uint64_t Problem_5_2(uint64_t n, uint8_t i, uint8_t j);
 extern unsigned long long Problem_5_3(uint64_t n);
 extern unsigned long Problem_5_4(unsigned long n);
 extern long Problem_5_8(long n);
+extern bool Problem_5_9(long n);
 
 TEST_CASE("5.1") {
     uint64_t n = 2604228621193453608;
@@ -29,4 +30,9 @@ TEST_CASE("5.4") {
 TEST_CASE("5.8") {
     long n = -1132;
     REQUIRE(Problem_5_8(n) == -2311);
+}
+
+TEST_CASE("5.9") {
+    int n = 2147447412;
+    REQUIRE(Problem_5_9(n));
 }
