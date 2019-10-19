@@ -10,6 +10,7 @@ extern void Problem_6_1_Variant_3(vector<bool> &arr);
 extern void Problem_6_1_Variant_4(vector<bool> &arr);
 extern vector<int> Problem_6_2(const vector<int> &arr);
 extern string Problem_6_2_Varaint(const string &a, const string &b);
+extern bool Problem_6_4(const vector<int> &arr);
 
 TEST_CASE("6.1") {
     vector<int> a1{0, 1, 2, 0, 2, 1, 1};
@@ -46,4 +47,9 @@ TEST_CASE("6.2") {
     const string a = "999";
     const string b = "999";
     REQUIRE(Problem_6_2_Varaint(a, b) == "1998");
+}
+
+TEST_CASE("6.4") {
+    const vector<int> a1{3, 2, 0, 0, 2, 0, 1};
+    REQUIRE(!Problem_6_4(a1));
 }
