@@ -69,3 +69,16 @@ void Problem_6_1_Variant_2(vector<int> &arr, int k1, int k2, int k3, int k4) {
         swap(*m1, *right);
     }
 }
+
+void Problem_6_1_Variant_3(vector<bool> &arr) {
+    auto left = arr.begin(), right = arr.end() - 1;
+
+    while (left != right) {
+        if (*left == true) {
+            swap(*left, *right);
+            right--;
+        } else {
+            left++;
+        }
+    }
+}

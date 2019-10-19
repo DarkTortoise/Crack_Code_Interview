@@ -6,6 +6,7 @@ using namespace std;
 extern void Problem_6_1(vector<int> &arr, int pivot);
 extern void Problem_6_1_Variant_1(vector<int> &arr, int k1, int k2, int k3);
 extern void Problem_6_1_Variant_2(vector<int> &arr, int k1, int k2, int k3, int k4);
+extern void Problem_6_1_Variant_3(vector<bool> &arr);
 
 TEST_CASE("6.1") {
     vector<int> a1{0, 1, 2, 0, 2, 1, 1};
@@ -22,4 +23,9 @@ TEST_CASE("6.1") {
     vector<int> r3{1, 1, 1, 2, 2, 3, 3, 4, 4};
     Problem_6_1_Variant_2(a3, 1, 2, 3, 4);
     REQUIRE(a3 == r3);
+
+    vector<bool> a4{true, false, false, true};
+    vector<bool> r4{false, false, true, true};
+    Problem_6_1_Variant_3(a4);
+    REQUIRE(a4 == r4);
 }
