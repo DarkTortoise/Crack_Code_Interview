@@ -18,3 +18,23 @@ void Problem_6_1(vector<int> &arr, int pivot) {
         }
     }
 }
+
+void Problem_6_1_Variant(vector<int> &arr, int k1, int k2, int k3) {
+    auto left = arr.begin(), right = arr.end() - 1, mid = arr.begin();
+
+    while (mid != right) {
+        if (*mid == k1) {
+            swap(*left, *mid);
+
+            if (mid == left)
+                mid++;
+
+            left++;
+        } else if (*mid == k2) {
+            mid++;
+        } else {
+            swap(*mid, *right);
+            right--;
+        }
+    }
+}
