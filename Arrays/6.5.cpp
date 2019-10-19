@@ -35,3 +35,23 @@ size_t Problem_6_5_Varaint_1(vector<int> &arr, int key) {
 
     return count;
 }
+
+void Problem_6_5_Variant_2(vector<int> &arr, int m) {
+    auto p1 = arr.begin(), p2 = arr.begin() + 1;
+    bool has_duplicate = false;
+
+    while (p2 != arr.end()) {
+        if (*p1 == *p2) {
+            p2++;
+        } else if (distance(p1, p2) == m) {
+            p1 = p1 + 2;
+            has_duplicate = true;
+        } else if (distance(p1, p2) > m) {
+            p1 = p2;
+        } else if (distance(p1, p2) == m - 2 && has_duplicate) {
+            *p1++ = *p2++;
+        } else {
+            p1++, p2++;
+        }
+    }
+}
