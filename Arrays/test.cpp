@@ -7,6 +7,7 @@ extern void Problem_6_1(vector<int> &arr, int pivot);
 extern void Problem_6_1_Variant_1(vector<int> &arr, int k1, int k2, int k3);
 extern void Problem_6_1_Variant_2(vector<int> &arr, int k1, int k2, int k3, int k4);
 extern void Problem_6_1_Variant_3(vector<bool> &arr);
+extern void Problem_6_1_Variant_4(vector<bool> &arr);
 
 TEST_CASE("6.1") {
     vector<int> a1{0, 1, 2, 0, 2, 1, 1};
@@ -28,4 +29,9 @@ TEST_CASE("6.1") {
     vector<bool> r4{false, false, true, true};
     Problem_6_1_Variant_3(a4);
     REQUIRE(a4 == r4);
+
+    vector<bool> a5{true, false, true, false, false, true};
+    vector<bool> r5{false, false, false, true, true, true};
+    Problem_6_1_Variant_4(a5);
+    REQUIRE(a5 == r5);
 }

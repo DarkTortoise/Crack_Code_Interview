@@ -82,3 +82,26 @@ void Problem_6_1_Variant_3(vector<bool> &arr) {
         }
     }
 }
+
+void Problem_6_1_Variant_4(vector<bool> &arr) {
+    int n_true = 0, n_false = 0;
+
+    for (auto val: arr) {
+        if (val) {
+            n_true++;
+        } else {
+            n_false++;
+        }
+    }
+
+    auto left = arr.begin(), right = arr.begin() + n_false;
+
+    while (right != arr.end()) {
+        if (*left) {
+            swap(*left, *right);
+            right++;
+        } else {
+            left++;
+        }
+    }
+}
