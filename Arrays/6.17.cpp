@@ -75,3 +75,22 @@ vector<vector<int>> Problem_6_17_Variant_1(int d) {
 
     return result;
 }
+
+int Problem_6_17_Variant_2(const vector<vector<int>> &arr) {
+    size_t m = arr.size(), n = arr[0].size();
+    size_t row = 0, col = 0;
+
+    if (m % 2 == 0) {
+        row = m / 2;
+    } else if (m % 2 != 0) {
+        row = size_t(m / 2);
+    }
+
+    if (n % 2 == 0) {
+        col = n / 2 - 1;
+    } else {
+        col = size_t(n / 2);
+    }
+
+    return arr[row][col];
+}
