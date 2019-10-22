@@ -19,6 +19,7 @@ extern size_t Problem_6_6(const vector<size_t> &arr);
 extern size_t Problem_6_6_Variant(const vector<int> &arr);
 extern size_t Problem_6_7(const vector<size_t> &arr);
 extern vector<int> Problem_6_11(vector<int> &arr, size_t k);
+extern bool Problem_6_16(const vector<vector<int>> &arr);
 
 TEST_CASE("6.1") {
     vector<int> a1{0, 1, 2, 0, 2, 1, 1};
@@ -96,4 +97,20 @@ TEST_CASE("6.7") {
 TEST_CASE("6.11") {
     vector<int> a1{3, 7, 5, 11};
     REQUIRE(Problem_6_11(a1, 3).size() == 3);
+}
+
+TEST_CASE("6.16") {
+    const vector<vector<int>> a1{
+            {5, 3, 4, 6, 7, 8, 9, 1, 2},
+            {6, 7, 2, 1, 9, 5, 3, 4, 8},
+            {1, 9, 8, 3, 4, 2, 5, 6, 7},
+            {8, 5, 9, 7, 6, 1, 4, 2, 3},
+            {4, 2, 6, 8, 5, 3, 7, 9, 1},
+            {7, 1, 3, 9, 2, 4, 8, 5, 6},
+            {9, 6, 1, 5, 3, 7, 2, 8, 4},
+            {2, 8, 7, 4, 1, 9, 6, 3, 5},
+            {3, 4, 5, 2, 8, 6, 1, 7, 9}
+    };
+
+    REQUIRE(Problem_6_16(a1));
 }

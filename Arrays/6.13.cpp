@@ -5,14 +5,14 @@
 using namespace std;
 
 vector<size_t> Problem_6_13_S1(size_t n) {
-    unordered_set<size_t, bool> m;
+    unordered_set<size_t> m;
     vector<size_t> result;
     random_device rd;
     default_random_engine gen(rd());
     uniform_int_distribution<> dis(0, n);
 
     while (result.size() <= n) {
-        auto number = dis(gen);
+        size_t number = dis(gen);
         if (m.find(number) == m.end()) {
             m.insert(number);
             result.push_back(number);
