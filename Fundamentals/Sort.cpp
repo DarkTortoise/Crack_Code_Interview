@@ -36,3 +36,34 @@ void bubble_sort(vector<int> &arr) {
         }
     }
 }
+
+int partition(vector<int> &arr, int left, int right) {
+    int pivot = arr[right];
+    int left_ptr = left, right_ptr = right;
+
+    while (left_ptr < right_ptr) {
+        while (arr[left_ptr] < pivot && left_ptr < right_ptr) {
+            left_ptr++;
+        }
+
+        while (arr[right_ptr] >= pivot && left_ptr < right_ptr) {
+            right_ptr--;
+        }
+
+        swap(arr[left_ptr], arr[right_ptr]);
+    }
+
+    swap(arr[right], arr[left_ptr]);
+
+    return left_ptr;
+}
+
+void quick_sort(vector<int> &arr, int left, int right) {
+    if (left > right)
+        return;
+
+    auto pivot = partition(arr, left, right);
+
+    quick_sort(arr, left, pivot - 1);
+    quick_sort(arr, pivot + 1, right);
+}
